@@ -1,0 +1,81 @@
+grammar dk.sdu.mdsd.CSVParserGenerator with org.eclipse.xtext.common.Terminals
+
+generate cSVParserGenerator "http://www.sdu.dk/mdsd/CSVParserGenerator"
+
+Parser:
+	file=FileDecl 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?
+;
+
+FileDecl:
+	'File' ':'  name=STRING
+;
+
+ColDecl:
+	name=ID ':' type=Type mods+=Modification*
+;
+
+Modification:
+	ValueMod | External | StatFunc | ColumnAction | Constraint
+;
+
+Output:
+	'Output' ':' name=STRING	
+;
+
+ValueMod:
+	name=[ColDecl] '=' exp=LogExp
+;
+
+Type:
+	{Str} 'String' | {Integer} 'Integer' | {Date} 'Date' | {Float} 'Float'
+;
+
+LogExp returns Expression:
+	Comparison (('||' {Or.left=current} | '&&' {And.left=current}) right=Comparison)* 
+;
+
+Comparison returns Expression:
+	Sum (('<' {Lt.left=current} | '>' {Gt.left=current} | '==' {Equ.left=current} | '!=' {Neq.left=current} | '=<' {Leq.left=current} | '=>' {Geq.left=current}) right = Sum)*
+;
+
+Parens:
+	'(' exp=LogExp ')'
+;
+
+External:
+	'ExtFunc' name=ID '(' inp=[ColDecl] ')'
+;
+
+StatFunc:
+	{Max} 'Max' '(' input=[ColDecl] ')' | {Min} 'Min' '(' input=[ColDecl] ')' | {Std} 'Std' '(' input=[ColDecl] ')'
+	| {SumFunc} 'Sum' '(' input=[ColDecl] ')' | {Mean} 'Mean' '(' input=[ColDecl] ')'
+;
+
+ColumnAction:
+	{Add} 'AddCol' name=ID 'with' mod=LogExp | {Rem} 'RemCol' name=[ColDecl]
+;
+
+Sum returns Expression:
+	Factor (('+' {Plus.left=current} | '-' {Minus.left=current}) right=Factor)*
+;
+
+Factor returns Expression:
+	Primary (('*' {Mult.left=current} | '/' {Div.left=current}) right=Primary)*
+;
+
+Primary returns Expression:
+	Number | Parens | ColumnVar
+;
+
+ColumnVar:
+	name=[ColDecl]
+;
+
+Number:
+	{Num} value=INT
+;
+
+Constraint:
+	'satisfies' name=[ColDecl] 'constraint' exp=LogExp
+;
+
