@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ConstraintImpl extends ModificationImpl implements Constraint
+public class ConstraintImpl extends MinimalEObjectImpl.Container implements Constraint
 {
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.

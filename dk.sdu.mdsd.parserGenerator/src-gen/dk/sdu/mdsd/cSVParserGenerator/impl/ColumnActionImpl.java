@@ -8,6 +8,8 @@ import dk.sdu.mdsd.cSVParserGenerator.ColumnAction;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Column Action</b></em>'.
@@ -15,7 +17,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ColumnActionImpl extends ModificationImpl implements ColumnAction
+public class ColumnActionImpl extends MinimalEObjectImpl.Container implements ColumnAction
 {
   /**
    * <!-- begin-user-doc -->

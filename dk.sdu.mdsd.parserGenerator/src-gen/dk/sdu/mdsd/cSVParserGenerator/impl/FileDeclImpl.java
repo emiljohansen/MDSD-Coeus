@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.impl.FileDeclImpl#getName <em>Name</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.impl.FileDeclImpl#getSepchar <em>Sepchar</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,26 @@ public class FileDeclImpl extends MinimalEObjectImpl.Container implements FileDe
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSepchar() <em>Sepchar</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSepchar()
+   * @generated
+   * @ordered
+   */
+  protected static final String SEPCHAR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSepchar() <em>Sepchar</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSepchar()
+   * @generated
+   * @ordered
+   */
+  protected String sepchar = SEPCHAR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +121,39 @@ public class FileDeclImpl extends MinimalEObjectImpl.Container implements FileDe
    * @generated
    */
   @Override
+  public String getSepchar()
+  {
+    return sepchar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSepchar(String newSepchar)
+  {
+    String oldSepchar = sepchar;
+    sepchar = newSepchar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CSVParserGeneratorPackage.FILE_DECL__SEPCHAR, oldSepchar, sepchar));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case CSVParserGeneratorPackage.FILE_DECL__NAME:
         return getName();
+      case CSVParserGeneratorPackage.FILE_DECL__SEPCHAR:
+        return getSepchar();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +170,9 @@ public class FileDeclImpl extends MinimalEObjectImpl.Container implements FileDe
     {
       case CSVParserGeneratorPackage.FILE_DECL__NAME:
         setName((String)newValue);
+        return;
+      case CSVParserGeneratorPackage.FILE_DECL__SEPCHAR:
+        setSepchar((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +191,9 @@ public class FileDeclImpl extends MinimalEObjectImpl.Container implements FileDe
       case CSVParserGeneratorPackage.FILE_DECL__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case CSVParserGeneratorPackage.FILE_DECL__SEPCHAR:
+        setSepchar(SEPCHAR_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +210,8 @@ public class FileDeclImpl extends MinimalEObjectImpl.Container implements FileDe
     {
       case CSVParserGeneratorPackage.FILE_DECL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case CSVParserGeneratorPackage.FILE_DECL__SEPCHAR:
+        return SEPCHAR_EDEFAULT == null ? sepchar != null : !SEPCHAR_EDEFAULT.equals(sepchar);
     }
     return super.eIsSet(featureID);
   }
@@ -173,6 +229,8 @@ public class FileDeclImpl extends MinimalEObjectImpl.Container implements FileDe
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", sepchar: ");
+    result.append(sepchar);
     result.append(')');
     return result.toString();
   }

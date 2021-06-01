@@ -6,18 +6,25 @@ package dk.sdu.mdsd.cSVParserGenerator.util;
 import dk.sdu.mdsd.cSVParserGenerator.Add;
 import dk.sdu.mdsd.cSVParserGenerator.And;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage;
+import dk.sdu.mdsd.cSVParserGenerator.ColAct;
 import dk.sdu.mdsd.cSVParserGenerator.ColDecl;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnAction;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnVar;
+import dk.sdu.mdsd.cSVParserGenerator.Constrain;
 import dk.sdu.mdsd.cSVParserGenerator.Constraint;
 import dk.sdu.mdsd.cSVParserGenerator.Date;
+import dk.sdu.mdsd.cSVParserGenerator.DateLit;
+import dk.sdu.mdsd.cSVParserGenerator.DateLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.Div;
 import dk.sdu.mdsd.cSVParserGenerator.Equ;
 import dk.sdu.mdsd.cSVParserGenerator.Expression;
+import dk.sdu.mdsd.cSVParserGenerator.Ext;
 import dk.sdu.mdsd.cSVParserGenerator.External;
 import dk.sdu.mdsd.cSVParserGenerator.FileDecl;
+import dk.sdu.mdsd.cSVParserGenerator.Floa;
 import dk.sdu.mdsd.cSVParserGenerator.Geq;
 import dk.sdu.mdsd.cSVParserGenerator.Gt;
+import dk.sdu.mdsd.cSVParserGenerator.Integ;
 import dk.sdu.mdsd.cSVParserGenerator.Leq;
 import dk.sdu.mdsd.cSVParserGenerator.Lt;
 import dk.sdu.mdsd.cSVParserGenerator.Max;
@@ -34,11 +41,15 @@ import dk.sdu.mdsd.cSVParserGenerator.Parens;
 import dk.sdu.mdsd.cSVParserGenerator.Parser;
 import dk.sdu.mdsd.cSVParserGenerator.Plus;
 import dk.sdu.mdsd.cSVParserGenerator.Rem;
+import dk.sdu.mdsd.cSVParserGenerator.Stat;
 import dk.sdu.mdsd.cSVParserGenerator.StatFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Std;
 import dk.sdu.mdsd.cSVParserGenerator.Str;
+import dk.sdu.mdsd.cSVParserGenerator.StringLit;
+import dk.sdu.mdsd.cSVParserGenerator.StringLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.SumFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Type;
+import dk.sdu.mdsd.cSVParserGenerator.ValueM;
 import dk.sdu.mdsd.cSVParserGenerator.ValueMod;
 
 import org.eclipse.emf.ecore.EObject;
@@ -148,7 +159,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
       {
         ValueMod valueMod = (ValueMod)theEObject;
         T result = caseValueMod(valueMod);
-        if (result == null) result = caseModification(valueMod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -178,7 +188,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
       {
         External external = (External)theEObject;
         T result = caseExternal(external);
-        if (result == null) result = caseModification(external);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -186,7 +195,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
       {
         StatFunc statFunc = (StatFunc)theEObject;
         T result = caseStatFunc(statFunc);
-        if (result == null) result = caseModification(statFunc);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -194,7 +202,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
       {
         ColumnAction columnAction = (ColumnAction)theEObject;
         T result = caseColumnAction(columnAction);
-        if (result == null) result = caseModification(columnAction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -218,7 +225,62 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
       {
         Constraint constraint = (Constraint)theEObject;
         T result = caseConstraint(constraint);
-        if (result == null) result = caseModification(constraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.DATE_LITERAL:
+      {
+        DateLiteral dateLiteral = (DateLiteral)theEObject;
+        T result = caseDateLiteral(dateLiteral);
+        if (result == null) result = caseExpression(dateLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.STRING_LITERAL:
+      {
+        StringLiteral stringLiteral = (StringLiteral)theEObject;
+        T result = caseStringLiteral(stringLiteral);
+        if (result == null) result = caseExpression(stringLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.VALUE_M:
+      {
+        ValueM valueM = (ValueM)theEObject;
+        T result = caseValueM(valueM);
+        if (result == null) result = caseModification(valueM);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.EXT:
+      {
+        Ext ext = (Ext)theEObject;
+        T result = caseExt(ext);
+        if (result == null) result = caseModification(ext);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.STAT:
+      {
+        Stat stat = (Stat)theEObject;
+        T result = caseStat(stat);
+        if (result == null) result = caseModification(stat);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.COL_ACT:
+      {
+        ColAct colAct = (ColAct)theEObject;
+        T result = caseColAct(colAct);
+        if (result == null) result = caseModification(colAct);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.CONSTRAIN:
+      {
+        Constrain constrain = (Constrain)theEObject;
+        T result = caseConstrain(constrain);
+        if (result == null) result = caseModification(constrain);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -230,11 +292,11 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CSVParserGeneratorPackage.INTEGER:
+      case CSVParserGeneratorPackage.INTEG:
       {
-        dk.sdu.mdsd.cSVParserGenerator.Integer integer = (dk.sdu.mdsd.cSVParserGenerator.Integer)theEObject;
-        T result = caseInteger(integer);
-        if (result == null) result = caseType(integer);
+        Integ integ = (Integ)theEObject;
+        T result = caseInteg(integ);
+        if (result == null) result = caseType(integ);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -246,11 +308,11 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CSVParserGeneratorPackage.FLOAT:
+      case CSVParserGeneratorPackage.FLOA:
       {
-        dk.sdu.mdsd.cSVParserGenerator.Float float_ = (dk.sdu.mdsd.cSVParserGenerator.Float)theEObject;
-        T result = caseFloat(float_);
-        if (result == null) result = caseType(float_);
+        Floa floa = (Floa)theEObject;
+        T result = caseFloa(floa);
+        if (result == null) result = caseType(floa);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -323,7 +385,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         Max max = (Max)theEObject;
         T result = caseMax(max);
         if (result == null) result = caseStatFunc(max);
-        if (result == null) result = caseModification(max);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -332,7 +393,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         Min min = (Min)theEObject;
         T result = caseMin(min);
         if (result == null) result = caseStatFunc(min);
-        if (result == null) result = caseModification(min);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -341,7 +401,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         Std std = (Std)theEObject;
         T result = caseStd(std);
         if (result == null) result = caseStatFunc(std);
-        if (result == null) result = caseModification(std);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -350,7 +409,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         SumFunc sumFunc = (SumFunc)theEObject;
         T result = caseSumFunc(sumFunc);
         if (result == null) result = caseStatFunc(sumFunc);
-        if (result == null) result = caseModification(sumFunc);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -359,7 +417,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         Mean mean = (Mean)theEObject;
         T result = caseMean(mean);
         if (result == null) result = caseStatFunc(mean);
-        if (result == null) result = caseModification(mean);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -368,7 +425,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         Add add = (Add)theEObject;
         T result = caseAdd(add);
         if (result == null) result = caseColumnAction(add);
-        if (result == null) result = caseModification(add);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -377,7 +433,6 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         Rem rem = (Rem)theEObject;
         T result = caseRem(rem);
         if (result == null) result = caseColumnAction(rem);
-        if (result == null) result = caseModification(rem);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -419,6 +474,24 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
         T result = caseNum(num);
         if (result == null) result = caseNumber(num);
         if (result == null) result = caseExpression(num);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.DATE_LIT:
+      {
+        DateLit dateLit = (DateLit)theEObject;
+        T result = caseDateLit(dateLit);
+        if (result == null) result = caseDateLiteral(dateLit);
+        if (result == null) result = caseExpression(dateLit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CSVParserGeneratorPackage.STRING_LIT:
+      {
+        StringLit stringLit = (StringLit)theEObject;
+        T result = caseStringLit(stringLit);
+        if (result == null) result = caseStringLiteral(stringLit);
+        if (result == null) result = caseExpression(stringLit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -667,6 +740,118 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Date Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Date Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDateLiteral(DateLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringLiteral(StringLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Value M</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Value M</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseValueM(ValueM object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ext</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ext</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExt(Ext object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Stat</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Stat</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStat(Stat object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Col Act</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Col Act</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseColAct(ColAct object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constrain</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constrain</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstrain(Constrain object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Str</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -683,17 +868,17 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Integ</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Integ</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInteger(dk.sdu.mdsd.cSVParserGenerator.Integer object)
+  public T caseInteg(Integ object)
   {
     return null;
   }
@@ -715,17 +900,17 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Float</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Floa</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Float</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Floa</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFloat(dk.sdu.mdsd.cSVParserGenerator.Float object)
+  public T caseFloa(Floa object)
   {
     return null;
   }
@@ -1046,6 +1231,38 @@ public class CSVParserGeneratorSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNum(Num object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Date Lit</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Date Lit</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDateLit(DateLit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Lit</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Lit</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringLit(StringLit object)
   {
     return null;
   }

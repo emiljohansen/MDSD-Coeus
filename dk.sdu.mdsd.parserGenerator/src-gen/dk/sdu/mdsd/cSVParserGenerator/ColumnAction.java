@@ -3,6 +3,7 @@
  */
 package dk.sdu.mdsd.cSVParserGenerator;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,6 @@ package dk.sdu.mdsd.cSVParserGenerator;
  * @model
  * @generated
  */
-public interface ColumnAction extends Modification
+public interface ColumnAction extends EObject
 {
 } // ColumnAction

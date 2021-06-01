@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.Output#getName <em>Name</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.Output#getNumber <em>Number</em>}</li>
  * </ul>
  *
  * @see dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage#getOutput()
@@ -44,5 +45,27 @@ public interface Output extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Number</em>' attribute.
+   * @see #setNumber(int)
+   * @see dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage#getOutput_Number()
+   * @model
+   * @generated
+   */
+  int getNumber();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mdsd.cSVParserGenerator.Output#getNumber <em>Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Number</em>' attribute.
+   * @see #getNumber()
+   * @generated
+   */
+  void setNumber(int value);
 
 } // Output

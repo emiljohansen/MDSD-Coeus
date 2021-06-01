@@ -43,7 +43,13 @@ public class CSVParserGeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getParserAccess().getGroup(), "rule__Parser__Group__0");
 			builder.put(grammarAccess.getFileDeclAccess().getGroup(), "rule__FileDecl__Group__0");
 			builder.put(grammarAccess.getColDeclAccess().getGroup(), "rule__ColDecl__Group__0");
+			builder.put(grammarAccess.getModificationAccess().getGroup_0(), "rule__Modification__Group_0__0");
+			builder.put(grammarAccess.getModificationAccess().getGroup_1(), "rule__Modification__Group_1__0");
+			builder.put(grammarAccess.getModificationAccess().getGroup_2(), "rule__Modification__Group_2__0");
+			builder.put(grammarAccess.getModificationAccess().getGroup_3(), "rule__Modification__Group_3__0");
+			builder.put(grammarAccess.getModificationAccess().getGroup_4(), "rule__Modification__Group_4__0");
 			builder.put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
+			builder.put(grammarAccess.getOutputAccess().getGroup_3(), "rule__Output__Group_3__0");
 			builder.put(grammarAccess.getValueModAccess().getGroup(), "rule__ValueMod__Group__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_0(), "rule__Type__Group_0__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_1(), "rule__Type__Group_1__0");
@@ -80,15 +86,24 @@ public class CSVParserGeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFactorAccess().getGroup_1_0_1(), "rule__Factor__Group_1_0_1__0");
 			builder.put(grammarAccess.getNumberAccess().getGroup(), "rule__Number__Group__0");
 			builder.put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
+			builder.put(grammarAccess.getDateLiteralAccess().getGroup(), "rule__DateLiteral__Group__0");
+			builder.put(grammarAccess.getStringLiteralAccess().getGroup(), "rule__StringLiteral__Group__0");
 			builder.put(grammarAccess.getParserAccess().getFileAssignment_0(), "rule__Parser__FileAssignment_0");
 			builder.put(grammarAccess.getParserAccess().getColumnsAssignment_3(), "rule__Parser__ColumnsAssignment_3");
 			builder.put(grammarAccess.getParserAccess().getModsAssignment_5(), "rule__Parser__ModsAssignment_5");
 			builder.put(grammarAccess.getParserAccess().getOutAssignment_6(), "rule__Parser__OutAssignment_6");
 			builder.put(grammarAccess.getFileDeclAccess().getNameAssignment_2(), "rule__FileDecl__NameAssignment_2");
+			builder.put(grammarAccess.getFileDeclAccess().getSepcharAssignment_4(), "rule__FileDecl__SepcharAssignment_4");
 			builder.put(grammarAccess.getColDeclAccess().getNameAssignment_0(), "rule__ColDecl__NameAssignment_0");
 			builder.put(grammarAccess.getColDeclAccess().getTypeAssignment_2(), "rule__ColDecl__TypeAssignment_2");
 			builder.put(grammarAccess.getColDeclAccess().getModsAssignment_3(), "rule__ColDecl__ModsAssignment_3");
+			builder.put(grammarAccess.getModificationAccess().getModsAssignment_0_3(), "rule__Modification__ModsAssignment_0_3");
+			builder.put(grammarAccess.getModificationAccess().getModsAssignment_1_3(), "rule__Modification__ModsAssignment_1_3");
+			builder.put(grammarAccess.getModificationAccess().getModsAssignment_2_3(), "rule__Modification__ModsAssignment_2_3");
+			builder.put(grammarAccess.getModificationAccess().getModsAssignment_3_3(), "rule__Modification__ModsAssignment_3_3");
+			builder.put(grammarAccess.getModificationAccess().getModsAssignment_4_3(), "rule__Modification__ModsAssignment_4_3");
 			builder.put(grammarAccess.getOutputAccess().getNameAssignment_2(), "rule__Output__NameAssignment_2");
+			builder.put(grammarAccess.getOutputAccess().getNumberAssignment_3_1(), "rule__Output__NumberAssignment_3_1");
 			builder.put(grammarAccess.getValueModAccess().getNameAssignment_0(), "rule__ValueMod__NameAssignment_0");
 			builder.put(grammarAccess.getValueModAccess().getExpAssignment_2(), "rule__ValueMod__ExpAssignment_2");
 			builder.put(grammarAccess.getLogExpAccess().getRightAssignment_1_1(), "rule__LogExp__RightAssignment_1_1");
@@ -102,7 +117,8 @@ public class CSVParserGeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStatFuncAccess().getInputAssignment_3_3(), "rule__StatFunc__InputAssignment_3_3");
 			builder.put(grammarAccess.getStatFuncAccess().getInputAssignment_4_3(), "rule__StatFunc__InputAssignment_4_3");
 			builder.put(grammarAccess.getColumnActionAccess().getNameAssignment_0_2(), "rule__ColumnAction__NameAssignment_0_2");
-			builder.put(grammarAccess.getColumnActionAccess().getModAssignment_0_4(), "rule__ColumnAction__ModAssignment_0_4");
+			builder.put(grammarAccess.getColumnActionAccess().getTypeAssignment_0_4(), "rule__ColumnAction__TypeAssignment_0_4");
+			builder.put(grammarAccess.getColumnActionAccess().getModAssignment_0_6(), "rule__ColumnAction__ModAssignment_0_6");
 			builder.put(grammarAccess.getColumnActionAccess().getNameAssignment_1_2(), "rule__ColumnAction__NameAssignment_1_2");
 			builder.put(grammarAccess.getSumAccess().getRightAssignment_1_1(), "rule__Sum__RightAssignment_1_1");
 			builder.put(grammarAccess.getFactorAccess().getRightAssignment_1_1(), "rule__Factor__RightAssignment_1_1");
@@ -110,6 +126,8 @@ public class CSVParserGeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNumberAccess().getValueAssignment_1(), "rule__Number__ValueAssignment_1");
 			builder.put(grammarAccess.getConstraintAccess().getNameAssignment_1(), "rule__Constraint__NameAssignment_1");
 			builder.put(grammarAccess.getConstraintAccess().getExpAssignment_3(), "rule__Constraint__ExpAssignment_3");
+			builder.put(grammarAccess.getDateLiteralAccess().getValueAssignment_2(), "rule__DateLiteral__ValueAssignment_2");
+			builder.put(grammarAccess.getStringLiteralAccess().getValueAssignment_1(), "rule__StringLiteral__ValueAssignment_1");
 		}
 	}
 	

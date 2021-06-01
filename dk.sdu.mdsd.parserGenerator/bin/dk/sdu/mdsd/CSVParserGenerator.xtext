@@ -3,11 +3,11 @@ grammar dk.sdu.mdsd.CSVParserGenerator with org.eclipse.xtext.common.Terminals
 generate cSVParserGenerator "http://www.sdu.dk/mdsd/CSVParserGenerator"
 
 Parser:
-	file=FileDecl 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?
+	file=FileDecl? 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?
 ;
 
 FileDecl:
-	'File' ':'  name=STRING
+	'file' ':'  name=STRING 'separator' sepchar=STRING
 ;
 
 ColDecl:
@@ -15,11 +15,11 @@ ColDecl:
 ;
 
 Modification:
-	ValueMod | External | StatFunc | ColumnAction | Constraint
+	{ValueM} 'modifications' '{' mods+=ValueMod* '}'| {Ext} 'externals' '{' mods+=External* '}' | {Stat} 'statistics' '{' mods+=StatFunc* '}' | {ColAct} 'layout' '{' mods+=ColumnAction* '}'| {Constrain} 'constraints' '{' mods+=Constraint* '}'
 ;
 
 Output:
-	'Output' ':' name=STRING	
+	'output' ':' name=STRING ('records' number=INT)?	
 ;
 
 ValueMod:
@@ -27,7 +27,7 @@ ValueMod:
 ;
 
 Type:
-	{Str} 'String' | {Integer} 'Integer' | {Date} 'Date' | {Float} 'Float'
+	{Str} 'string' | {Integ} 'integer' | {Date} 'date' | {Floa} 'float'
 ;
 
 LogExp returns Expression:
@@ -43,16 +43,16 @@ Parens:
 ;
 
 External:
-	'ExtFunc' name=ID '(' inp=[ColDecl] ')'
+	'extFunc' name=ID '(' inp=[ColDecl] ')'
 ;
 
 StatFunc:
-	{Max} 'Max' '(' input=[ColDecl] ')' | {Min} 'Min' '(' input=[ColDecl] ')' | {Std} 'Std' '(' input=[ColDecl] ')'
-	| {SumFunc} 'Sum' '(' input=[ColDecl] ')' | {Mean} 'Mean' '(' input=[ColDecl] ')'
+	{Max} 'max' '(' input=[ColDecl] ')' | {Min} 'min' '(' input=[ColDecl] ')' | {Std} 'std' '(' input=[ColDecl] ')'
+	| {SumFunc} 'sum' '(' input=[ColDecl] ')' | {Mean} 'mean' '(' input=[ColDecl] ')'
 ;
 
 ColumnAction:
-	{Add} 'AddCol' name=ID 'with' mod=LogExp | {Rem} 'RemCol' name=[ColDecl]
+	{Add} 'addCol' name=ID ':' type=Type 'with' mod=LogExp | {Rem} 'remCol' name=[ColDecl]
 ;
 
 Sum returns Expression:
@@ -64,7 +64,7 @@ Factor returns Expression:
 ;
 
 Primary returns Expression:
-	Number | Parens | ColumnVar
+	Number | Parens | ColumnVar | DateLiteral | StringLiteral
 ;
 
 ColumnVar:
@@ -78,4 +78,13 @@ Number:
 Constraint:
 	'satisfies' name=[ColDecl] 'constraint' exp=LogExp
 ;
+
+DateLiteral:
+	{DateLit} 'd'value=STRING
+;
+
+StringLiteral:
+	{StringLit} value=STRING	
+;
+
 

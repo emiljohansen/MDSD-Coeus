@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class StatFuncImpl extends ModificationImpl implements StatFunc
+public class StatFuncImpl extends MinimalEObjectImpl.Container implements StatFunc
 {
   /**
    * The cached value of the '{@link #getInput() <em>Input</em>}' reference.

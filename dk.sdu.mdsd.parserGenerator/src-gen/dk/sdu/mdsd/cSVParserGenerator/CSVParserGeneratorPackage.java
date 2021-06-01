@@ -132,13 +132,22 @@ public interface CSVParserGeneratorPackage extends EPackage
   int FILE_DECL__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Sepchar</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_DECL__SEPCHAR = 1;
+
+  /**
    * The number of structural features of the '<em>File Decl</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILE_DECL_FEATURE_COUNT = 1;
+  int FILE_DECL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ColDeclImpl <em>Col Decl</em>}' class.
@@ -225,13 +234,22 @@ public interface CSVParserGeneratorPackage extends EPackage
   int OUTPUT__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT__NUMBER = 1;
+
+  /**
    * The number of structural features of the '<em>Output</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OUTPUT_FEATURE_COUNT = 1;
+  int OUTPUT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ValueModImpl <em>Value Mod</em>}' class.
@@ -250,7 +268,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_MOD__NAME = MODIFICATION_FEATURE_COUNT + 0;
+  int VALUE_MOD__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -259,7 +277,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_MOD__EXP = MODIFICATION_FEATURE_COUNT + 1;
+  int VALUE_MOD__EXP = 1;
 
   /**
    * The number of structural features of the '<em>Value Mod</em>' class.
@@ -268,7 +286,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_MOD_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 2;
+  int VALUE_MOD_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.TypeImpl <em>Type</em>}' class.
@@ -353,7 +371,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTERNAL__NAME = MODIFICATION_FEATURE_COUNT + 0;
+  int EXTERNAL__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Inp</b></em>' reference.
@@ -362,7 +380,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTERNAL__INP = MODIFICATION_FEATURE_COUNT + 1;
+  int EXTERNAL__INP = 1;
 
   /**
    * The number of structural features of the '<em>External</em>' class.
@@ -371,7 +389,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTERNAL_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 2;
+  int EXTERNAL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StatFuncImpl <em>Stat Func</em>}' class.
@@ -390,7 +408,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STAT_FUNC__INPUT = MODIFICATION_FEATURE_COUNT + 0;
+  int STAT_FUNC__INPUT = 0;
 
   /**
    * The number of structural features of the '<em>Stat Func</em>' class.
@@ -399,7 +417,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STAT_FUNC_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 1;
+  int STAT_FUNC_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ColumnActionImpl <em>Column Action</em>}' class.
@@ -418,7 +436,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN_ACTION_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 0;
+  int COLUMN_ACTION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ColumnVarImpl <em>Column Var</em>}' class.
@@ -484,7 +502,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTRAINT__NAME = MODIFICATION_FEATURE_COUNT + 0;
+  int CONSTRAINT__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -493,7 +511,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTRAINT__EXP = MODIFICATION_FEATURE_COUNT + 1;
+  int CONSTRAINT__EXP = 1;
 
   /**
    * The number of structural features of the '<em>Constraint</em>' class.
@@ -502,7 +520,185 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTRAINT_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 2;
+  int CONSTRAINT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.DateLiteralImpl <em>Date Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.DateLiteralImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getDateLiteral()
+   * @generated
+   */
+  int DATE_LITERAL = 15;
+
+  /**
+   * The number of structural features of the '<em>Date Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StringLiteralImpl <em>String Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.StringLiteralImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStringLiteral()
+   * @generated
+   */
+  int STRING_LITERAL = 16;
+
+  /**
+   * The number of structural features of the '<em>String Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ValueMImpl <em>Value M</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.ValueMImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getValueM()
+   * @generated
+   */
+  int VALUE_M = 17;
+
+  /**
+   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_M__MODS = MODIFICATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Value M</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_M_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ExtImpl <em>Ext</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.ExtImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getExt()
+   * @generated
+   */
+  int EXT = 18;
+
+  /**
+   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXT__MODS = MODIFICATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Ext</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXT_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StatImpl <em>Stat</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.StatImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStat()
+   * @generated
+   */
+  int STAT = 19;
+
+  /**
+   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STAT__MODS = MODIFICATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Stat</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STAT_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ColActImpl <em>Col Act</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.ColActImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getColAct()
+   * @generated
+   */
+  int COL_ACT = 20;
+
+  /**
+   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COL_ACT__MODS = MODIFICATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Col Act</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COL_ACT_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ConstrainImpl <em>Constrain</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.ConstrainImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getConstrain()
+   * @generated
+   */
+  int CONSTRAIN = 21;
+
+  /**
+   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAIN__MODS = MODIFICATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Constrain</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAIN_FEATURE_COUNT = MODIFICATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StrImpl <em>Str</em>}' class.
@@ -512,7 +708,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStr()
    * @generated
    */
-  int STR = 15;
+  int STR = 22;
 
   /**
    * The number of structural features of the '<em>Str</em>' class.
@@ -524,23 +720,23 @@ public interface CSVParserGeneratorPackage extends EPackage
   int STR_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.IntegerImpl <em>Integer</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.IntegImpl <em>Integ</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.cSVParserGenerator.impl.IntegerImpl
-   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getInteger()
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.IntegImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getInteg()
    * @generated
    */
-  int INTEGER = 16;
+  int INTEG = 23;
 
   /**
-   * The number of structural features of the '<em>Integer</em>' class.
+   * The number of structural features of the '<em>Integ</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTEGER_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+  int INTEG_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.DateImpl <em>Date</em>}' class.
@@ -550,7 +746,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getDate()
    * @generated
    */
-  int DATE = 17;
+  int DATE = 24;
 
   /**
    * The number of structural features of the '<em>Date</em>' class.
@@ -562,23 +758,23 @@ public interface CSVParserGeneratorPackage extends EPackage
   int DATE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.FloatImpl <em>Float</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.FloaImpl <em>Floa</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.cSVParserGenerator.impl.FloatImpl
-   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getFloat()
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.FloaImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getFloa()
    * @generated
    */
-  int FLOAT = 18;
+  int FLOA = 25;
 
   /**
-   * The number of structural features of the '<em>Float</em>' class.
+   * The number of structural features of the '<em>Floa</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FLOAT_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+  int FLOA_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.OrImpl <em>Or</em>}' class.
@@ -588,7 +784,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getOr()
    * @generated
    */
-  int OR = 19;
+  int OR = 26;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -625,7 +821,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getAnd()
    * @generated
    */
-  int AND = 20;
+  int AND = 27;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -662,7 +858,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getLt()
    * @generated
    */
-  int LT = 21;
+  int LT = 28;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -699,7 +895,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getGt()
    * @generated
    */
-  int GT = 22;
+  int GT = 29;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -736,7 +932,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getEqu()
    * @generated
    */
-  int EQU = 23;
+  int EQU = 30;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -773,7 +969,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getNeq()
    * @generated
    */
-  int NEQ = 24;
+  int NEQ = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -810,7 +1006,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getLeq()
    * @generated
    */
-  int LEQ = 25;
+  int LEQ = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -847,7 +1043,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getGeq()
    * @generated
    */
-  int GEQ = 26;
+  int GEQ = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -884,7 +1080,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getMax()
    * @generated
    */
-  int MAX = 27;
+  int MAX = 34;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' reference.
@@ -912,7 +1108,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getMin()
    * @generated
    */
-  int MIN = 28;
+  int MIN = 35;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' reference.
@@ -940,7 +1136,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStd()
    * @generated
    */
-  int STD = 29;
+  int STD = 36;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' reference.
@@ -968,7 +1164,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getSumFunc()
    * @generated
    */
-  int SUM_FUNC = 30;
+  int SUM_FUNC = 37;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' reference.
@@ -996,7 +1192,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getMean()
    * @generated
    */
-  int MEAN = 31;
+  int MEAN = 38;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' reference.
@@ -1024,7 +1220,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getAdd()
    * @generated
    */
-  int ADD = 32;
+  int ADD = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1036,13 +1232,22 @@ public interface CSVParserGeneratorPackage extends EPackage
   int ADD__NAME = COLUMN_ACTION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD__TYPE = COLUMN_ACTION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Mod</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD__MOD = COLUMN_ACTION_FEATURE_COUNT + 1;
+  int ADD__MOD = COLUMN_ACTION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Add</em>' class.
@@ -1051,7 +1256,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_FEATURE_COUNT = COLUMN_ACTION_FEATURE_COUNT + 2;
+  int ADD_FEATURE_COUNT = COLUMN_ACTION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.RemImpl <em>Rem</em>}' class.
@@ -1061,7 +1266,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getRem()
    * @generated
    */
-  int REM = 33;
+  int REM = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -1089,7 +1294,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 34;
+  int PLUS = 41;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1126,7 +1331,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 35;
+  int MINUS = 42;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1163,7 +1368,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getMult()
    * @generated
    */
-  int MULT = 36;
+  int MULT = 43;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1200,7 +1405,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getDiv()
    * @generated
    */
-  int DIV = 37;
+  int DIV = 44;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1237,7 +1442,7 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getNum()
    * @generated
    */
-  int NUM = 38;
+  int NUM = 45;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1256,6 +1461,62 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @ordered
    */
   int NUM_FEATURE_COUNT = NUMBER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.DateLitImpl <em>Date Lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.DateLitImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getDateLit()
+   * @generated
+   */
+  int DATE_LIT = 46;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE_LIT__VALUE = DATE_LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Date Lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE_LIT_FEATURE_COUNT = DATE_LITERAL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StringLitImpl <em>String Lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.StringLitImpl
+   * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStringLit()
+   * @generated
+   */
+  int STRING_LIT = 47;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LIT__VALUE = STRING_LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LIT_FEATURE_COUNT = STRING_LITERAL_FEATURE_COUNT + 1;
 
 
   /**
@@ -1334,6 +1595,17 @@ public interface CSVParserGeneratorPackage extends EPackage
   EAttribute getFileDecl_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.cSVParserGenerator.FileDecl#getSepchar <em>Sepchar</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sepchar</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.FileDecl#getSepchar()
+   * @see #getFileDecl()
+   * @generated
+   */
+  EAttribute getFileDecl_Sepchar();
+
+  /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.ColDecl <em>Col Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1406,6 +1678,17 @@ public interface CSVParserGeneratorPackage extends EPackage
    * @generated
    */
   EAttribute getOutput_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.cSVParserGenerator.Output#getNumber <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Number</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Output#getNumber()
+   * @see #getOutput()
+   * @generated
+   */
+  EAttribute getOutput_Number();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.ValueMod <em>Value Mod</em>}'.
@@ -1607,6 +1890,131 @@ public interface CSVParserGeneratorPackage extends EPackage
   EReference getConstraint_Exp();
 
   /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.DateLiteral <em>Date Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Date Literal</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.DateLiteral
+   * @generated
+   */
+  EClass getDateLiteral();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Literal</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.StringLiteral
+   * @generated
+   */
+  EClass getStringLiteral();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.ValueM <em>Value M</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Value M</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.ValueM
+   * @generated
+   */
+  EClass getValueM();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.cSVParserGenerator.ValueM#getMods <em>Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mods</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.ValueM#getMods()
+   * @see #getValueM()
+   * @generated
+   */
+  EReference getValueM_Mods();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Ext <em>Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ext</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Ext
+   * @generated
+   */
+  EClass getExt();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.cSVParserGenerator.Ext#getMods <em>Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mods</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Ext#getMods()
+   * @see #getExt()
+   * @generated
+   */
+  EReference getExt_Mods();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Stat <em>Stat</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Stat</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Stat
+   * @generated
+   */
+  EClass getStat();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.cSVParserGenerator.Stat#getMods <em>Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mods</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Stat#getMods()
+   * @see #getStat()
+   * @generated
+   */
+  EReference getStat_Mods();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.ColAct <em>Col Act</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Col Act</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.ColAct
+   * @generated
+   */
+  EClass getColAct();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.cSVParserGenerator.ColAct#getMods <em>Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mods</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.ColAct#getMods()
+   * @see #getColAct()
+   * @generated
+   */
+  EReference getColAct_Mods();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Constrain <em>Constrain</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Constrain</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Constrain
+   * @generated
+   */
+  EClass getConstrain();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.cSVParserGenerator.Constrain#getMods <em>Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mods</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Constrain#getMods()
+   * @see #getConstrain()
+   * @generated
+   */
+  EReference getConstrain_Mods();
+
+  /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Str <em>Str</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1617,14 +2025,14 @@ public interface CSVParserGeneratorPackage extends EPackage
   EClass getStr();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Integer <em>Integer</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Integ <em>Integ</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Integer</em>'.
-   * @see dk.sdu.mdsd.cSVParserGenerator.Integer
+   * @return the meta object for class '<em>Integ</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Integ
    * @generated
    */
-  EClass getInteger();
+  EClass getInteg();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Date <em>Date</em>}'.
@@ -1637,14 +2045,14 @@ public interface CSVParserGeneratorPackage extends EPackage
   EClass getDate();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Float <em>Float</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Floa <em>Floa</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Float</em>'.
-   * @see dk.sdu.mdsd.cSVParserGenerator.Float
+   * @return the meta object for class '<em>Floa</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Floa
    * @generated
    */
-  EClass getFloat();
+  EClass getFloa();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.Or <em>Or</em>}'.
@@ -1974,6 +2382,17 @@ public interface CSVParserGeneratorPackage extends EPackage
   EAttribute getAdd_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.cSVParserGenerator.Add#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Add#getType()
+   * @see #getAdd()
+   * @generated
+   */
+  EReference getAdd_Type();
+
+  /**
    * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.cSVParserGenerator.Add#getMod <em>Mod</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2155,6 +2574,48 @@ public interface CSVParserGeneratorPackage extends EPackage
   EAttribute getNum_Value();
 
   /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.DateLit <em>Date Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Date Lit</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.DateLit
+   * @generated
+   */
+  EClass getDateLit();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.cSVParserGenerator.DateLit#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.DateLit#getValue()
+   * @see #getDateLit()
+   * @generated
+   */
+  EAttribute getDateLit_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.cSVParserGenerator.StringLit <em>String Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Lit</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.StringLit
+   * @generated
+   */
+  EClass getStringLit();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.cSVParserGenerator.StringLit#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see dk.sdu.mdsd.cSVParserGenerator.StringLit#getValue()
+   * @see #getStringLit()
+   * @generated
+   */
+  EAttribute getStringLit_Value();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2238,6 +2699,14 @@ public interface CSVParserGeneratorPackage extends EPackage
     EAttribute FILE_DECL__NAME = eINSTANCE.getFileDecl_Name();
 
     /**
+     * The meta object literal for the '<em><b>Sepchar</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILE_DECL__SEPCHAR = eINSTANCE.getFileDecl_Sepchar();
+
+    /**
      * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ColDeclImpl <em>Col Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2298,6 +2767,14 @@ public interface CSVParserGeneratorPackage extends EPackage
      * @generated
      */
     EAttribute OUTPUT__NAME = eINSTANCE.getOutput_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTPUT__NUMBER = eINSTANCE.getOutput_Number();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ValueModImpl <em>Value Mod</em>}' class.
@@ -2472,6 +2949,116 @@ public interface CSVParserGeneratorPackage extends EPackage
     EReference CONSTRAINT__EXP = eINSTANCE.getConstraint_Exp();
 
     /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.DateLiteralImpl <em>Date Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.DateLiteralImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getDateLiteral()
+     * @generated
+     */
+    EClass DATE_LITERAL = eINSTANCE.getDateLiteral();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StringLiteralImpl <em>String Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.StringLiteralImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStringLiteral()
+     * @generated
+     */
+    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ValueMImpl <em>Value M</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.ValueMImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getValueM()
+     * @generated
+     */
+    EClass VALUE_M = eINSTANCE.getValueM();
+
+    /**
+     * The meta object literal for the '<em><b>Mods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VALUE_M__MODS = eINSTANCE.getValueM_Mods();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ExtImpl <em>Ext</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.ExtImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getExt()
+     * @generated
+     */
+    EClass EXT = eINSTANCE.getExt();
+
+    /**
+     * The meta object literal for the '<em><b>Mods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXT__MODS = eINSTANCE.getExt_Mods();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StatImpl <em>Stat</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.StatImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStat()
+     * @generated
+     */
+    EClass STAT = eINSTANCE.getStat();
+
+    /**
+     * The meta object literal for the '<em><b>Mods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STAT__MODS = eINSTANCE.getStat_Mods();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ColActImpl <em>Col Act</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.ColActImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getColAct()
+     * @generated
+     */
+    EClass COL_ACT = eINSTANCE.getColAct();
+
+    /**
+     * The meta object literal for the '<em><b>Mods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COL_ACT__MODS = eINSTANCE.getColAct_Mods();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.ConstrainImpl <em>Constrain</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.ConstrainImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getConstrain()
+     * @generated
+     */
+    EClass CONSTRAIN = eINSTANCE.getConstrain();
+
+    /**
+     * The meta object literal for the '<em><b>Mods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAIN__MODS = eINSTANCE.getConstrain_Mods();
+
+    /**
      * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StrImpl <em>Str</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2482,14 +3069,14 @@ public interface CSVParserGeneratorPackage extends EPackage
     EClass STR = eINSTANCE.getStr();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.IntegerImpl <em>Integer</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.IntegImpl <em>Integ</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.cSVParserGenerator.impl.IntegerImpl
-     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getInteger()
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.IntegImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getInteg()
      * @generated
      */
-    EClass INTEGER = eINSTANCE.getInteger();
+    EClass INTEG = eINSTANCE.getInteg();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.DateImpl <em>Date</em>}' class.
@@ -2502,14 +3089,14 @@ public interface CSVParserGeneratorPackage extends EPackage
     EClass DATE = eINSTANCE.getDate();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.FloatImpl <em>Float</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.FloaImpl <em>Floa</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.cSVParserGenerator.impl.FloatImpl
-     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getFloat()
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.FloaImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getFloa()
      * @generated
      */
-    EClass FLOAT = eINSTANCE.getFloat();
+    EClass FLOA = eINSTANCE.getFloa();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.OrImpl <em>Or</em>}' class.
@@ -2788,6 +3375,14 @@ public interface CSVParserGeneratorPackage extends EPackage
     EAttribute ADD__NAME = eINSTANCE.getAdd_Name();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADD__TYPE = eINSTANCE.getAdd_Type();
+
+    /**
      * The meta object literal for the '<em><b>Mod</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2934,6 +3529,42 @@ public interface CSVParserGeneratorPackage extends EPackage
      * @generated
      */
     EAttribute NUM__VALUE = eINSTANCE.getNum_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.DateLitImpl <em>Date Lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.DateLitImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getDateLit()
+     * @generated
+     */
+    EClass DATE_LIT = eINSTANCE.getDateLit();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATE_LIT__VALUE = eINSTANCE.getDateLit_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.cSVParserGenerator.impl.StringLitImpl <em>String Lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.StringLitImpl
+     * @see dk.sdu.mdsd.cSVParserGenerator.impl.CSVParserGeneratorPackageImpl#getStringLit()
+     * @generated
+     */
+    EClass STRING_LIT = eINSTANCE.getStringLit();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LIT__VALUE = eINSTANCE.getStringLit_Value();
 
   }
 

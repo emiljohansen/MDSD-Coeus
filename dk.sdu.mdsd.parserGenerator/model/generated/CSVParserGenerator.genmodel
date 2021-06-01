@@ -14,6 +14,7 @@
     </genClasses>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//FileDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//FileDecl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//FileDecl/sepchar"/>
     </genClasses>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//ColDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//ColDecl/name"/>
@@ -23,6 +24,7 @@
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Modification"/>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Output">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//Output/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//Output/number"/>
     </genClasses>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//ValueMod">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//ValueMod/name"/>
@@ -49,10 +51,27 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Constraint/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Constraint/exp"/>
     </genClasses>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//DateLiteral"/>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//StringLiteral"/>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//ValueM">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//ValueM/mods"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//Ext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Ext/mods"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//Stat">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Stat/mods"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//ColAct">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//ColAct/mods"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//Constrain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Constrain/mods"/>
+    </genClasses>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Str"/>
-    <genClasses ecoreClass="CSVParserGenerator.ecore#//Integer"/>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//Integ"/>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Date"/>
-    <genClasses ecoreClass="CSVParserGenerator.ecore#//Float"/>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//Floa"/>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Or">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Or/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Or/right"/>
@@ -92,6 +111,7 @@
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Mean"/>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Add">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//Add/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Add/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVParserGenerator.ecore#//Add/mod"/>
     </genClasses>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Rem">
@@ -115,6 +135,12 @@
     </genClasses>
     <genClasses ecoreClass="CSVParserGenerator.ecore#//Num">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//Num/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//DateLit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//DateLit/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVParserGenerator.ecore#//StringLit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVParserGenerator.ecore#//StringLit/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

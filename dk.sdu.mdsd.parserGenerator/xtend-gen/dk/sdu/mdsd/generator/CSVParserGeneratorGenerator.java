@@ -25,85 +25,50 @@ public class CSVParserGeneratorGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    fsa.generateFile("/parser/pom.xml", this.generatePom());
     this.parserGenerator.doGenerate(resource, fsa, context);
+    fsa.generateFile("/parser/src/dk/sdu/mmmi/parser/ParserMain.java", this.generateMainClass());
   }
   
   public Object generateProjectStructure(final IFileSystemAccess2 fsa) {
     return null;
   }
   
-  public CharSequence generatePom() {
+  public CharSequence generateMainClass() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    _builder.append("\t\t");
+    _builder.append("package dk.sdu.mmmi.parser;");
     _builder.newLine();
-    _builder.append("<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
+    _builder.append("\t\t");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">");
+    _builder.append("\t\t");
+    _builder.append("public class ParserMain{");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<modelVersion>4.0.0</modelVersion>");
+    _builder.append("\t");
     _builder.newLine();
-    _builder.append("  ");
+    _builder.append("\t\t");
+    _builder.append("public static ExternalCheck externals;");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<groupId>dk.sdu.mmmi.parser</groupId>");
+    _builder.append("\t");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<artifactId>demo</artifactId>");
+    _builder.append("\t\t");
+    _builder.append("public static CSVParser p = new CSVParser(externals);");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<version>0.0.1-SNAPSHOT</version>");
+    _builder.append("\t");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<name>GeneratedParser</name>");
+    _builder.append("\t\t");
+    _builder.append("public static void main(String[] args) {");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<description>GeneratedParser</description>");
+    _builder.append("\t\t\t");
+    _builder.append("p.parse();");
     _builder.newLine();
-    _builder.append("  ");
+    _builder.append("\t\t");
+    _builder.append("}");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<properties>");
+    _builder.append("\t");
     _builder.newLine();
-    _builder.append("    ");
-    _builder.append("<java.version>8</java.version>");
+    _builder.append("}");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("</properties>");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<dependencies>");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("<dependency>");
-    _builder.newLine();
-    _builder.append("        ");
-    _builder.append("<groupId>org.apache.commons</groupId>");
-    _builder.newLine();
-    _builder.append("        ");
-    _builder.append("<artifactId>commons-csv</artifactId>");
-    _builder.newLine();
-    _builder.append("        ");
-    _builder.append("<version>1.8</version>");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("</dependency>");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("</dependencies>");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<build>");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("</build>");
-    _builder.newLine();
-    _builder.append("</project>");
+    _builder.append("\t\t");
     _builder.newLine();
     return _builder;
   }

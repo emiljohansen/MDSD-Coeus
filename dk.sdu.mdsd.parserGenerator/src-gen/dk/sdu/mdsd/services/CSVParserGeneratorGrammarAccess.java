@@ -40,13 +40,13 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cOutOutputParserRuleCall_6_0 = (RuleCall)cOutAssignment_6.eContents().get(0);
 		
 		//Parser:
-		//	file=FileDecl 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?;
+		//	file=FileDecl? 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//file=FileDecl 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?
+		//file=FileDecl? 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?
 		public Group getGroup() { return cGroup; }
 		
-		//file=FileDecl
+		//file=FileDecl?
 		public Assignment getFileAssignment_0() { return cFileAssignment_0; }
 		
 		//FileDecl
@@ -86,15 +86,18 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cSeparatorKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSepcharAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSepcharSTRINGTerminalRuleCall_4_0 = (RuleCall)cSepcharAssignment_4.eContents().get(0);
 		
 		//FileDecl:
-		//	'File' ':' name=STRING;
+		//	'file' ':' name=STRING 'separator' sepchar=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'File' ':' name=STRING
+		//'file' ':' name=STRING 'separator' sepchar=STRING
 		public Group getGroup() { return cGroup; }
 		
-		//'File'
+		//'file'
 		public Keyword getFileKeyword_0() { return cFileKeyword_0; }
 		
 		//':'
@@ -105,6 +108,15 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
+		
+		//'separator'
+		public Keyword getSeparatorKeyword_3() { return cSeparatorKeyword_3; }
+		
+		//sepchar=STRING
+		public Assignment getSepcharAssignment_4() { return cSepcharAssignment_4; }
+		
+		//STRING
+		public RuleCall getSepcharSTRINGTerminalRuleCall_4_0() { return cSepcharSTRINGTerminalRuleCall_4_0; }
 	}
 	public class ColDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.CSVParserGenerator.ColDecl");
@@ -148,33 +160,157 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	public class ModificationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.CSVParserGenerator.Modification");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cValueModParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cExternalParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cStatFuncParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cColumnActionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cConstraintParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cValueMAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cModificationsKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cModsAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cModsValueModParserRuleCall_0_3_0 = (RuleCall)cModsAssignment_0_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cExtAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cExternalsKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cModsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cModsExternalParserRuleCall_1_3_0 = (RuleCall)cModsAssignment_1_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cStatAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cStatisticsKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cModsAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cModsStatFuncParserRuleCall_2_3_0 = (RuleCall)cModsAssignment_2_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cColActAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Keyword cLayoutKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cModsAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cModsColumnActionParserRuleCall_3_3_0 = (RuleCall)cModsAssignment_3_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cConstrainAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Keyword cConstraintsKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cModsAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cModsConstraintParserRuleCall_4_3_0 = (RuleCall)cModsAssignment_4_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		
 		//Modification:
-		//	ValueMod | External | StatFunc | ColumnAction | Constraint;
+		//	{ValueM} 'modifications' '{' mods+=ValueMod* '}' | {Ext} 'externals' '{' mods+=External* '}' | {Stat} 'statistics'
+		//	'{' mods+=StatFunc* '}' | {ColAct} 'layout' '{' mods+=ColumnAction* '}' | {Constrain} 'constraints' '{'
+		//	mods+=Constraint* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ValueMod | External | StatFunc | ColumnAction | Constraint
+		//{ValueM} 'modifications' '{' mods+=ValueMod* '}' | {Ext} 'externals' '{' mods+=External* '}' | {Stat} 'statistics' '{'
+		//mods+=StatFunc* '}' | {ColAct} 'layout' '{' mods+=ColumnAction* '}' | {Constrain} 'constraints' '{' mods+=Constraint*
+		//'}'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//{ValueM} 'modifications' '{' mods+=ValueMod* '}'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{ValueM}
+		public Action getValueMAction_0_0() { return cValueMAction_0_0; }
+		
+		//'modifications'
+		public Keyword getModificationsKeyword_0_1() { return cModificationsKeyword_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_0_2() { return cLeftCurlyBracketKeyword_0_2; }
+		
+		//mods+=ValueMod*
+		public Assignment getModsAssignment_0_3() { return cModsAssignment_0_3; }
+		
 		//ValueMod
-		public RuleCall getValueModParserRuleCall_0() { return cValueModParserRuleCall_0; }
+		public RuleCall getModsValueModParserRuleCall_0_3_0() { return cModsValueModParserRuleCall_0_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_0_4() { return cRightCurlyBracketKeyword_0_4; }
+		
+		//{Ext} 'externals' '{' mods+=External* '}'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{Ext}
+		public Action getExtAction_1_0() { return cExtAction_1_0; }
+		
+		//'externals'
+		public Keyword getExternalsKeyword_1_1() { return cExternalsKeyword_1_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1_2() { return cLeftCurlyBracketKeyword_1_2; }
+		
+		//mods+=External*
+		public Assignment getModsAssignment_1_3() { return cModsAssignment_1_3; }
 		
 		//External
-		public RuleCall getExternalParserRuleCall_1() { return cExternalParserRuleCall_1; }
+		public RuleCall getModsExternalParserRuleCall_1_3_0() { return cModsExternalParserRuleCall_1_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_4() { return cRightCurlyBracketKeyword_1_4; }
+		
+		//{Stat} 'statistics' '{' mods+=StatFunc* '}'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{Stat}
+		public Action getStatAction_2_0() { return cStatAction_2_0; }
+		
+		//'statistics'
+		public Keyword getStatisticsKeyword_2_1() { return cStatisticsKeyword_2_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2_2() { return cLeftCurlyBracketKeyword_2_2; }
+		
+		//mods+=StatFunc*
+		public Assignment getModsAssignment_2_3() { return cModsAssignment_2_3; }
 		
 		//StatFunc
-		public RuleCall getStatFuncParserRuleCall_2() { return cStatFuncParserRuleCall_2; }
+		public RuleCall getModsStatFuncParserRuleCall_2_3_0() { return cModsStatFuncParserRuleCall_2_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
+		
+		//{ColAct} 'layout' '{' mods+=ColumnAction* '}'
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//{ColAct}
+		public Action getColActAction_3_0() { return cColActAction_3_0; }
+		
+		//'layout'
+		public Keyword getLayoutKeyword_3_1() { return cLayoutKeyword_3_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3_2() { return cLeftCurlyBracketKeyword_3_2; }
+		
+		//mods+=ColumnAction*
+		public Assignment getModsAssignment_3_3() { return cModsAssignment_3_3; }
 		
 		//ColumnAction
-		public RuleCall getColumnActionParserRuleCall_3() { return cColumnActionParserRuleCall_3; }
+		public RuleCall getModsColumnActionParserRuleCall_3_3_0() { return cModsColumnActionParserRuleCall_3_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
+		
+		//{Constrain} 'constraints' '{' mods+=Constraint* '}'
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{Constrain}
+		public Action getConstrainAction_4_0() { return cConstrainAction_4_0; }
+		
+		//'constraints'
+		public Keyword getConstraintsKeyword_4_1() { return cConstraintsKeyword_4_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_2() { return cLeftCurlyBracketKeyword_4_2; }
+		
+		//mods+=Constraint*
+		public Assignment getModsAssignment_4_3() { return cModsAssignment_4_3; }
 		
 		//Constraint
-		public RuleCall getConstraintParserRuleCall_4() { return cConstraintParserRuleCall_4; }
+		public RuleCall getModsConstraintParserRuleCall_4_3_0() { return cModsConstraintParserRuleCall_4_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
 	}
 	public class OutputElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.CSVParserGenerator.Output");
@@ -183,15 +319,19 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cRecordsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cNumberAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNumberINTTerminalRuleCall_3_1_0 = (RuleCall)cNumberAssignment_3_1.eContents().get(0);
 		
 		//Output:
-		//	'Output' ':' name=STRING;
+		//	'output' ':' name=STRING ('records' number=INT)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Output' ':' name=STRING
+		//'output' ':' name=STRING ('records' number=INT)?
 		public Group getGroup() { return cGroup; }
 		
-		//'Output'
+		//'output'
 		public Keyword getOutputKeyword_0() { return cOutputKeyword_0; }
 		
 		//':'
@@ -202,6 +342,18 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
+		
+		//('records' number=INT)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'records'
+		public Keyword getRecordsKeyword_3_0() { return cRecordsKeyword_3_0; }
+		
+		//number=INT
+		public Assignment getNumberAssignment_3_1() { return cNumberAssignment_3_1; }
+		
+		//INT
+		public RuleCall getNumberINTTerminalRuleCall_3_1_0() { return cNumberINTTerminalRuleCall_3_1_0; }
 	}
 	public class ValueModElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.CSVParserGenerator.ValueMod");
@@ -245,56 +397,56 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final Action cStrAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Keyword cStringKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cIntegerAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cIntegAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Keyword cIntegerKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cDateAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Keyword cDateKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Action cFloatAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Action cFloaAction_3_0 = (Action)cGroup_3.eContents().get(0);
 		private final Keyword cFloatKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		
 		//Type:
-		//	{Str} 'String' | {Integer} 'Integer' | {Date} 'Date' | {Float} 'Float';
+		//	{Str} 'string' | {Integ} 'integer' | {Date} 'date' | {Floa} 'float';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Str} 'String' | {Integer} 'Integer' | {Date} 'Date' | {Float} 'Float'
+		//{Str} 'string' | {Integ} 'integer' | {Date} 'date' | {Floa} 'float'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Str} 'String'
+		//{Str} 'string'
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{Str}
 		public Action getStrAction_0_0() { return cStrAction_0_0; }
 		
-		//'String'
+		//'string'
 		public Keyword getStringKeyword_0_1() { return cStringKeyword_0_1; }
 		
-		//{Integer} 'Integer'
+		//{Integ} 'integer'
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Integer}
-		public Action getIntegerAction_1_0() { return cIntegerAction_1_0; }
+		//{Integ}
+		public Action getIntegAction_1_0() { return cIntegAction_1_0; }
 		
-		//'Integer'
+		//'integer'
 		public Keyword getIntegerKeyword_1_1() { return cIntegerKeyword_1_1; }
 		
-		//{Date} 'Date'
+		//{Date} 'date'
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//{Date}
 		public Action getDateAction_2_0() { return cDateAction_2_0; }
 		
-		//'Date'
+		//'date'
 		public Keyword getDateKeyword_2_1() { return cDateKeyword_2_1; }
 		
-		//{Float} 'Float'
+		//{Floa} 'float'
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//{Float}
-		public Action getFloatAction_3_0() { return cFloatAction_3_0; }
+		//{Floa}
+		public Action getFloaAction_3_0() { return cFloaAction_3_0; }
 		
-		//'Float'
+		//'float'
 		public Keyword getFloatKeyword_3_1() { return cFloatKeyword_3_1; }
 	}
 	public class LogExpElements extends AbstractParserRuleElementFinder {
@@ -379,9 +531,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightSumParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		///*Comparison returns Expression:
-		//	{Comparison} left=Sum (op=CompOp right=Sum)*
-		//;*/ Comparison Expression:
+		//Comparison Expression:
 		//	Sum (('<' {Lt.left=current} | '>' {Gt.left=current} | '==' {Equ.left=current} | '!=' {Neq.left=current} | '=<'
 		//	{Leq.left=current} | '=>' {Geq.left=current}) right=Sum)*;
 		@Override public ParserRule getRule() { return rule; }
@@ -469,9 +619,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cExpLogExpParserRuleCall_1_0 = (RuleCall)cExpAssignment_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		///*CompOp:
-		//	{Geq} '=>' | {Leq} '=<' | {Neq} '!=' | {Equ} '==' | {Gt} '>' | {Lt} '<'
-		//;*/ Parens:
+		//Parens:
 		//	'(' exp=LogExp ')';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -503,13 +651,13 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//External:
-		//	'ExtFunc' name=ID '(' inp=[ColDecl] ')';
+		//	'extFunc' name=ID '(' inp=[ColDecl] ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ExtFunc' name=ID '(' inp=[ColDecl] ')'
+		//'extFunc' name=ID '(' inp=[ColDecl] ')'
 		public Group getGroup() { return cGroup; }
 		
-		//'ExtFunc'
+		//'extFunc'
 		public Keyword getExtFuncKeyword_0() { return cExtFuncKeyword_0; }
 		
 		//name=ID
@@ -578,21 +726,21 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cRightParenthesisKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		
 		//StatFunc:
-		//	{Max} 'Max' '(' input=[ColDecl] ')' | {Min} 'Min' '(' input=[ColDecl] ')' | {Std} 'Std' '(' input=[ColDecl] ')'
-		//	| {SumFunc} 'Sum' '(' input=[ColDecl] ')' | {Mean} 'Mean' '(' input=[ColDecl] ')';
+		//	{Max} 'max' '(' input=[ColDecl] ')' | {Min} 'min' '(' input=[ColDecl] ')' | {Std} 'std' '(' input=[ColDecl] ')'
+		//	| {SumFunc} 'sum' '(' input=[ColDecl] ')' | {Mean} 'mean' '(' input=[ColDecl] ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Max} 'Max' '(' input=[ColDecl] ')' | {Min} 'Min' '(' input=[ColDecl] ')' | {Std} 'Std' '(' input=[ColDecl] ')' |
-		//{SumFunc} 'Sum' '(' input=[ColDecl] ')' | {Mean} 'Mean' '(' input=[ColDecl] ')'
+		//{Max} 'max' '(' input=[ColDecl] ')' | {Min} 'min' '(' input=[ColDecl] ')' | {Std} 'std' '(' input=[ColDecl] ')' |
+		//{SumFunc} 'sum' '(' input=[ColDecl] ')' | {Mean} 'mean' '(' input=[ColDecl] ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Max} 'Max' '(' input=[ColDecl] ')'
+		//{Max} 'max' '(' input=[ColDecl] ')'
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{Max}
 		public Action getMaxAction_0_0() { return cMaxAction_0_0; }
 		
-		//'Max'
+		//'max'
 		public Keyword getMaxKeyword_0_1() { return cMaxKeyword_0_1; }
 		
 		//'('
@@ -610,13 +758,13 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		//')'
 		public Keyword getRightParenthesisKeyword_0_4() { return cRightParenthesisKeyword_0_4; }
 		
-		//{Min} 'Min' '(' input=[ColDecl] ')'
+		//{Min} 'min' '(' input=[ColDecl] ')'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Min}
 		public Action getMinAction_1_0() { return cMinAction_1_0; }
 		
-		//'Min'
+		//'min'
 		public Keyword getMinKeyword_1_1() { return cMinKeyword_1_1; }
 		
 		//'('
@@ -634,13 +782,13 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		//')'
 		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
 		
-		//{Std} 'Std' '(' input=[ColDecl] ')'
+		//{Std} 'std' '(' input=[ColDecl] ')'
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//{Std}
 		public Action getStdAction_2_0() { return cStdAction_2_0; }
 		
-		//'Std'
+		//'std'
 		public Keyword getStdKeyword_2_1() { return cStdKeyword_2_1; }
 		
 		//'('
@@ -658,13 +806,13 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		//')'
 		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
 		
-		//{SumFunc} 'Sum' '(' input=[ColDecl] ')'
+		//{SumFunc} 'sum' '(' input=[ColDecl] ')'
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//{SumFunc}
 		public Action getSumFuncAction_3_0() { return cSumFuncAction_3_0; }
 		
-		//'Sum'
+		//'sum'
 		public Keyword getSumKeyword_3_1() { return cSumKeyword_3_1; }
 		
 		//'('
@@ -682,13 +830,13 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		//')'
 		public Keyword getRightParenthesisKeyword_3_4() { return cRightParenthesisKeyword_3_4; }
 		
-		//{Mean} 'Mean' '(' input=[ColDecl] ')'
+		//{Mean} 'mean' '(' input=[ColDecl] ')'
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//{Mean}
 		public Action getMeanAction_4_0() { return cMeanAction_4_0; }
 		
-		//'Mean'
+		//'mean'
 		public Keyword getMeanKeyword_4_1() { return cMeanKeyword_4_1; }
 		
 		//'('
@@ -714,9 +862,12 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cAddColKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cNameAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_0_2_0 = (RuleCall)cNameAssignment_0_2.eContents().get(0);
-		private final Keyword cWithKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
-		private final Assignment cModAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
-		private final RuleCall cModLogExpParserRuleCall_0_4_0 = (RuleCall)cModAssignment_0_4.eContents().get(0);
+		private final Keyword cColonKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cTypeAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
+		private final RuleCall cTypeTypeParserRuleCall_0_4_0 = (RuleCall)cTypeAssignment_0_4.eContents().get(0);
+		private final Keyword cWithKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
+		private final Assignment cModAssignment_0_6 = (Assignment)cGroup_0.eContents().get(6);
+		private final RuleCall cModLogExpParserRuleCall_0_6_0 = (RuleCall)cModAssignment_0_6.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cRemAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Keyword cRemColKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
@@ -725,19 +876,19 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cNameColDeclIDTerminalRuleCall_1_2_0_1 = (RuleCall)cNameColDeclCrossReference_1_2_0.eContents().get(1);
 		
 		//ColumnAction:
-		//	{Add} 'AddCol' name=ID 'with' mod=LogExp | {Rem} 'RemCol' name=[ColDecl];
+		//	{Add} 'addCol' name=ID ':' type=Type 'with' mod=LogExp | {Rem} 'remCol' name=[ColDecl];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Add} 'AddCol' name=ID 'with' mod=LogExp | {Rem} 'RemCol' name=[ColDecl]
+		//{Add} 'addCol' name=ID ':' type=Type 'with' mod=LogExp | {Rem} 'remCol' name=[ColDecl]
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Add} 'AddCol' name=ID 'with' mod=LogExp
+		//{Add} 'addCol' name=ID ':' type=Type 'with' mod=LogExp
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{Add}
 		public Action getAddAction_0_0() { return cAddAction_0_0; }
 		
-		//'AddCol'
+		//'addCol'
 		public Keyword getAddColKeyword_0_1() { return cAddColKeyword_0_1; }
 		
 		//name=ID
@@ -746,22 +897,31 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_2_0() { return cNameIDTerminalRuleCall_0_2_0; }
 		
+		//':'
+		public Keyword getColonKeyword_0_3() { return cColonKeyword_0_3; }
+		
+		//type=Type
+		public Assignment getTypeAssignment_0_4() { return cTypeAssignment_0_4; }
+		
+		//Type
+		public RuleCall getTypeTypeParserRuleCall_0_4_0() { return cTypeTypeParserRuleCall_0_4_0; }
+		
 		//'with'
-		public Keyword getWithKeyword_0_3() { return cWithKeyword_0_3; }
+		public Keyword getWithKeyword_0_5() { return cWithKeyword_0_5; }
 		
 		//mod=LogExp
-		public Assignment getModAssignment_0_4() { return cModAssignment_0_4; }
+		public Assignment getModAssignment_0_6() { return cModAssignment_0_6; }
 		
 		//LogExp
-		public RuleCall getModLogExpParserRuleCall_0_4_0() { return cModLogExpParserRuleCall_0_4_0; }
+		public RuleCall getModLogExpParserRuleCall_0_6_0() { return cModLogExpParserRuleCall_0_6_0; }
 		
-		//{Rem} 'RemCol' name=[ColDecl]
+		//{Rem} 'remCol' name=[ColDecl]
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Rem}
 		public Action getRemAction_1_0() { return cRemAction_1_0; }
 		
-		//'RemCol'
+		//'remCol'
 		public Keyword getRemColKeyword_1_1() { return cRemColKeyword_1_1; }
 		
 		//name=[ColDecl]
@@ -889,12 +1049,14 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cNumberParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cParensParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cColumnVarParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDateLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cStringLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Primary Expression:
-		//	Number | Parens | ColumnVar;
+		//	Number | Parens | ColumnVar | DateLiteral | StringLiteral;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Number | Parens | ColumnVar
+		//Number | Parens | ColumnVar | DateLiteral | StringLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Number
@@ -905,6 +1067,12 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		
 		//ColumnVar
 		public RuleCall getColumnVarParserRuleCall_2() { return cColumnVarParserRuleCall_2; }
+		
+		//DateLiteral
+		public RuleCall getDateLiteralParserRuleCall_3() { return cDateLiteralParserRuleCall_3; }
+		
+		//StringLiteral
+		public RuleCall getStringLiteralParserRuleCall_4() { return cStringLiteralParserRuleCall_4; }
 	}
 	public class ColumnVarElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.CSVParserGenerator.ColumnVar");
@@ -987,6 +1155,56 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		//LogExp
 		public RuleCall getExpLogExpParserRuleCall_3_0() { return cExpLogExpParserRuleCall_3_0; }
 	}
+	public class DateLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.CSVParserGenerator.DateLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cDateLitAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cDKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//DateLiteral:
+		//	{DateLit} 'd' value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{DateLit} 'd' value=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//{DateLit}
+		public Action getDateLitAction_0() { return cDateLitAction_0; }
+		
+		//'d'
+		public Keyword getDKeyword_1() { return cDKeyword_1; }
+		
+		//value=STRING
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
+	}
+	public class StringLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.CSVParserGenerator.StringLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cStringLitAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//StringLiteral:
+		//	{StringLit} value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{StringLit} value=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//{StringLit}
+		public Action getStringLitAction_0() { return cStringLitAction_0; }
+		
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+	}
 	
 	
 	private final ParserElements pParser;
@@ -1008,6 +1226,8 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	private final ColumnVarElements pColumnVar;
 	private final NumberElements pNumber;
 	private final ConstraintElements pConstraint;
+	private final DateLiteralElements pDateLiteral;
+	private final StringLiteralElements pStringLiteral;
 	
 	private final Grammar grammar;
 	
@@ -1037,6 +1257,8 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		this.pColumnVar = new ColumnVarElements();
 		this.pNumber = new NumberElements();
 		this.pConstraint = new ConstraintElements();
+		this.pDateLiteral = new DateLiteralElements();
+		this.pStringLiteral = new StringLiteralElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1067,7 +1289,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 
 	
 	//Parser:
-	//	file=FileDecl 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?;
+	//	file=FileDecl? 'columns' '{' columns+=ColDecl+ '}' mods+=Modification* out=Output?;
 	public ParserElements getParserAccess() {
 		return pParser;
 	}
@@ -1077,7 +1299,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//FileDecl:
-	//	'File' ':' name=STRING;
+	//	'file' ':' name=STRING 'separator' sepchar=STRING;
 	public FileDeclElements getFileDeclAccess() {
 		return pFileDecl;
 	}
@@ -1097,7 +1319,9 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//Modification:
-	//	ValueMod | External | StatFunc | ColumnAction | Constraint;
+	//	{ValueM} 'modifications' '{' mods+=ValueMod* '}' | {Ext} 'externals' '{' mods+=External* '}' | {Stat} 'statistics'
+	//	'{' mods+=StatFunc* '}' | {ColAct} 'layout' '{' mods+=ColumnAction* '}' | {Constrain} 'constraints' '{'
+	//	mods+=Constraint* '}';
 	public ModificationElements getModificationAccess() {
 		return pModification;
 	}
@@ -1107,7 +1331,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//Output:
-	//	'Output' ':' name=STRING;
+	//	'output' ':' name=STRING ('records' number=INT)?;
 	public OutputElements getOutputAccess() {
 		return pOutput;
 	}
@@ -1127,7 +1351,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//Type:
-	//	{Str} 'String' | {Integer} 'Integer' | {Date} 'Date' | {Float} 'Float';
+	//	{Str} 'string' | {Integ} 'integer' | {Date} 'date' | {Floa} 'float';
 	public TypeElements getTypeAccess() {
 		return pType;
 	}
@@ -1146,9 +1370,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		return getLogExpAccess().getRule();
 	}
 	
-	///*Comparison returns Expression:
-	//	{Comparison} left=Sum (op=CompOp right=Sum)*
-	//;*/ Comparison Expression:
+	//Comparison Expression:
 	//	Sum (('<' {Lt.left=current} | '>' {Gt.left=current} | '==' {Equ.left=current} | '!=' {Neq.left=current} | '=<'
 	//	{Leq.left=current} | '=>' {Geq.left=current}) right=Sum)*;
 	public ComparisonElements getComparisonAccess() {
@@ -1159,9 +1381,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 		return getComparisonAccess().getRule();
 	}
 	
-	///*CompOp:
-	//	{Geq} '=>' | {Leq} '=<' | {Neq} '!=' | {Equ} '==' | {Gt} '>' | {Lt} '<'
-	//;*/ Parens:
+	//Parens:
 	//	'(' exp=LogExp ')';
 	public ParensElements getParensAccess() {
 		return pParens;
@@ -1172,7 +1392,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//External:
-	//	'ExtFunc' name=ID '(' inp=[ColDecl] ')';
+	//	'extFunc' name=ID '(' inp=[ColDecl] ')';
 	public ExternalElements getExternalAccess() {
 		return pExternal;
 	}
@@ -1182,8 +1402,8 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//StatFunc:
-	//	{Max} 'Max' '(' input=[ColDecl] ')' | {Min} 'Min' '(' input=[ColDecl] ')' | {Std} 'Std' '(' input=[ColDecl] ')'
-	//	| {SumFunc} 'Sum' '(' input=[ColDecl] ')' | {Mean} 'Mean' '(' input=[ColDecl] ')';
+	//	{Max} 'max' '(' input=[ColDecl] ')' | {Min} 'min' '(' input=[ColDecl] ')' | {Std} 'std' '(' input=[ColDecl] ')'
+	//	| {SumFunc} 'sum' '(' input=[ColDecl] ')' | {Mean} 'mean' '(' input=[ColDecl] ')';
 	public StatFuncElements getStatFuncAccess() {
 		return pStatFunc;
 	}
@@ -1193,7 +1413,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//ColumnAction:
-	//	{Add} 'AddCol' name=ID 'with' mod=LogExp | {Rem} 'RemCol' name=[ColDecl];
+	//	{Add} 'addCol' name=ID ':' type=Type 'with' mod=LogExp | {Rem} 'remCol' name=[ColDecl];
 	public ColumnActionElements getColumnActionAccess() {
 		return pColumnAction;
 	}
@@ -1223,7 +1443,7 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//Primary Expression:
-	//	Number | Parens | ColumnVar;
+	//	Number | Parens | ColumnVar | DateLiteral | StringLiteral;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}
@@ -1260,6 +1480,26 @@ public class CSVParserGeneratorGrammarAccess extends AbstractGrammarElementFinde
 	
 	public ParserRule getConstraintRule() {
 		return getConstraintAccess().getRule();
+	}
+	
+	//DateLiteral:
+	//	{DateLit} 'd' value=STRING;
+	public DateLiteralElements getDateLiteralAccess() {
+		return pDateLiteral;
+	}
+	
+	public ParserRule getDateLiteralRule() {
+		return getDateLiteralAccess().getRule();
+	}
+	
+	//StringLiteral:
+	//	{StringLit} value=STRING;
+	public StringLiteralElements getStringLiteralAccess() {
+		return pStringLiteral;
+	}
+	
+	public ParserRule getStringLiteralRule() {
+		return getStringLiteralAccess().getRule();
 	}
 	
 	//terminal ID:

@@ -3,6 +3,7 @@
  */
 package dk.sdu.mdsd.cSVParserGenerator;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package dk.sdu.mdsd.cSVParserGenerator;
  * @model
  * @generated
  */
-public interface External extends Modification
+public interface External extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

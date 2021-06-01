@@ -6,8 +6,6 @@ package dk.sdu.mdsd.cSVParserGenerator.impl;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage;
 import dk.sdu.mdsd.cSVParserGenerator.Num;
 
-import java.lang.Integer;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;

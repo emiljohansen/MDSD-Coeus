@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.FileDecl#getName <em>Name</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.FileDecl#getSepchar <em>Sepchar</em>}</li>
  * </ul>
  *
  * @see dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage#getFileDecl()
@@ -44,5 +45,27 @@ public interface FileDecl extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Sepchar</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sepchar</em>' attribute.
+   * @see #setSepchar(String)
+   * @see dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage#getFileDecl_Sepchar()
+   * @model
+   * @generated
+   */
+  String getSepchar();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mdsd.cSVParserGenerator.FileDecl#getSepchar <em>Sepchar</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sepchar</em>' attribute.
+   * @see #getSepchar()
+   * @generated
+   */
+  void setSepchar(String value);
 
 } // FileDecl

@@ -7,16 +7,22 @@ import com.google.inject.Inject;
 import dk.sdu.mdsd.cSVParserGenerator.Add;
 import dk.sdu.mdsd.cSVParserGenerator.And;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage;
+import dk.sdu.mdsd.cSVParserGenerator.ColAct;
 import dk.sdu.mdsd.cSVParserGenerator.ColDecl;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnVar;
+import dk.sdu.mdsd.cSVParserGenerator.Constrain;
 import dk.sdu.mdsd.cSVParserGenerator.Constraint;
 import dk.sdu.mdsd.cSVParserGenerator.Date;
+import dk.sdu.mdsd.cSVParserGenerator.DateLit;
 import dk.sdu.mdsd.cSVParserGenerator.Div;
 import dk.sdu.mdsd.cSVParserGenerator.Equ;
+import dk.sdu.mdsd.cSVParserGenerator.Ext;
 import dk.sdu.mdsd.cSVParserGenerator.External;
 import dk.sdu.mdsd.cSVParserGenerator.FileDecl;
+import dk.sdu.mdsd.cSVParserGenerator.Floa;
 import dk.sdu.mdsd.cSVParserGenerator.Geq;
 import dk.sdu.mdsd.cSVParserGenerator.Gt;
+import dk.sdu.mdsd.cSVParserGenerator.Integ;
 import dk.sdu.mdsd.cSVParserGenerator.Leq;
 import dk.sdu.mdsd.cSVParserGenerator.Lt;
 import dk.sdu.mdsd.cSVParserGenerator.Max;
@@ -32,9 +38,12 @@ import dk.sdu.mdsd.cSVParserGenerator.Parens;
 import dk.sdu.mdsd.cSVParserGenerator.Parser;
 import dk.sdu.mdsd.cSVParserGenerator.Plus;
 import dk.sdu.mdsd.cSVParserGenerator.Rem;
+import dk.sdu.mdsd.cSVParserGenerator.Stat;
 import dk.sdu.mdsd.cSVParserGenerator.Std;
 import dk.sdu.mdsd.cSVParserGenerator.Str;
+import dk.sdu.mdsd.cSVParserGenerator.StringLit;
 import dk.sdu.mdsd.cSVParserGenerator.SumFunc;
+import dk.sdu.mdsd.cSVParserGenerator.ValueM;
 import dk.sdu.mdsd.cSVParserGenerator.ValueMod;
 import dk.sdu.mdsd.services.CSVParserGeneratorGrammarAccess;
 import java.util.Set;
@@ -68,11 +77,17 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 			case CSVParserGeneratorPackage.AND:
 				sequence_LogExp(context, (And) semanticObject); 
 				return; 
+			case CSVParserGeneratorPackage.COL_ACT:
+				sequence_Modification(context, (ColAct) semanticObject); 
+				return; 
 			case CSVParserGeneratorPackage.COL_DECL:
 				sequence_ColDecl(context, (ColDecl) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.COLUMN_VAR:
 				sequence_ColumnVar(context, (ColumnVar) semanticObject); 
+				return; 
+			case CSVParserGeneratorPackage.CONSTRAIN:
+				sequence_Modification(context, (Constrain) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.CONSTRAINT:
 				sequence_Constraint(context, (Constraint) semanticObject); 
@@ -80,11 +95,17 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 			case CSVParserGeneratorPackage.DATE:
 				sequence_Type(context, (Date) semanticObject); 
 				return; 
+			case CSVParserGeneratorPackage.DATE_LIT:
+				sequence_DateLiteral(context, (DateLit) semanticObject); 
+				return; 
 			case CSVParserGeneratorPackage.DIV:
 				sequence_Factor(context, (Div) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.EQU:
 				sequence_Comparison(context, (Equ) semanticObject); 
+				return; 
+			case CSVParserGeneratorPackage.EXT:
+				sequence_Modification(context, (Ext) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.EXTERNAL:
 				sequence_External(context, (External) semanticObject); 
@@ -92,8 +113,8 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 			case CSVParserGeneratorPackage.FILE_DECL:
 				sequence_FileDecl(context, (FileDecl) semanticObject); 
 				return; 
-			case CSVParserGeneratorPackage.FLOAT:
-				sequence_Type(context, (dk.sdu.mdsd.cSVParserGenerator.Float) semanticObject); 
+			case CSVParserGeneratorPackage.FLOA:
+				sequence_Type(context, (Floa) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.GEQ:
 				sequence_Comparison(context, (Geq) semanticObject); 
@@ -101,8 +122,8 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 			case CSVParserGeneratorPackage.GT:
 				sequence_Comparison(context, (Gt) semanticObject); 
 				return; 
-			case CSVParserGeneratorPackage.INTEGER:
-				sequence_Type(context, (dk.sdu.mdsd.cSVParserGenerator.Integer) semanticObject); 
+			case CSVParserGeneratorPackage.INTEG:
+				sequence_Type(context, (Integ) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.LEQ:
 				sequence_Comparison(context, (Leq) semanticObject); 
@@ -149,14 +170,23 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 			case CSVParserGeneratorPackage.REM:
 				sequence_ColumnAction(context, (Rem) semanticObject); 
 				return; 
+			case CSVParserGeneratorPackage.STAT:
+				sequence_Modification(context, (Stat) semanticObject); 
+				return; 
 			case CSVParserGeneratorPackage.STD:
 				sequence_StatFunc(context, (Std) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.STR:
 				sequence_Type(context, (Str) semanticObject); 
 				return; 
+			case CSVParserGeneratorPackage.STRING_LIT:
+				sequence_StringLiteral(context, (StringLit) semanticObject); 
+				return; 
 			case CSVParserGeneratorPackage.SUM_FUNC:
 				sequence_StatFunc(context, (SumFunc) semanticObject); 
+				return; 
+			case CSVParserGeneratorPackage.VALUE_M:
+				sequence_Modification(context, (ValueM) semanticObject); 
 				return; 
 			case CSVParserGeneratorPackage.VALUE_MOD:
 				sequence_ValueMod(context, (ValueMod) semanticObject); 
@@ -180,29 +210,30 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns Add
 	 *     ColumnAction returns Add
 	 *
 	 * Constraint:
-	 *     (name=ID mod=LogExp)
+	 *     (name=ID type=Type mod=LogExp)
 	 */
 	protected void sequence_ColumnAction(ISerializationContext context, Add semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.ADD__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.ADD__NAME));
+			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.ADD__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.ADD__TYPE));
 			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.ADD__MOD) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.ADD__MOD));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getColumnActionAccess().getNameIDTerminalRuleCall_0_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getColumnActionAccess().getModLogExpParserRuleCall_0_4_0(), semanticObject.getMod());
+		feeder.accept(grammarAccess.getColumnActionAccess().getTypeTypeParserRuleCall_0_4_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getColumnActionAccess().getModLogExpParserRuleCall_0_6_0(), semanticObject.getMod());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Modification returns Rem
 	 *     ColumnAction returns Rem
 	 *
 	 * Constraint:
@@ -436,7 +467,6 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns Constraint
 	 *     Constraint returns Constraint
 	 *
 	 * Constraint:
@@ -458,7 +488,41 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns External
+	 *     LogExp returns DateLit
+	 *     LogExp.Or_1_0_0_1 returns DateLit
+	 *     LogExp.And_1_0_1_1 returns DateLit
+	 *     Comparison returns DateLit
+	 *     Comparison.Lt_1_0_0_1 returns DateLit
+	 *     Comparison.Gt_1_0_1_1 returns DateLit
+	 *     Comparison.Equ_1_0_2_1 returns DateLit
+	 *     Comparison.Neq_1_0_3_1 returns DateLit
+	 *     Comparison.Leq_1_0_4_1 returns DateLit
+	 *     Comparison.Geq_1_0_5_1 returns DateLit
+	 *     Sum returns DateLit
+	 *     Sum.Plus_1_0_0_1 returns DateLit
+	 *     Sum.Minus_1_0_1_1 returns DateLit
+	 *     Factor returns DateLit
+	 *     Factor.Mult_1_0_0_1 returns DateLit
+	 *     Factor.Div_1_0_1_1 returns DateLit
+	 *     Primary returns DateLit
+	 *     DateLiteral returns DateLit
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_DateLiteral(ISerializationContext context, DateLit semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.DATE_LIT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.DATE_LIT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDateLiteralAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     External returns External
 	 *
 	 * Constraint:
@@ -555,15 +619,18 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	 *     FileDecl returns FileDecl
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     (name=STRING sepchar=STRING)
 	 */
 	protected void sequence_FileDecl(ISerializationContext context, FileDecl semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.FILE_DECL__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.FILE_DECL__NAME));
+			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.FILE_DECL__SEPCHAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.FILE_DECL__SEPCHAR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFileDeclAccess().getNameSTRINGTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFileDeclAccess().getSepcharSTRINGTerminalRuleCall_4_0(), semanticObject.getSepchar());
 		feeder.finish();
 	}
 	
@@ -616,6 +683,66 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
+	 *     Modification returns ColAct
+	 *
+	 * Constraint:
+	 *     mods+=ColumnAction*
+	 */
+	protected void sequence_Modification(ISerializationContext context, ColAct semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Modification returns Constrain
+	 *
+	 * Constraint:
+	 *     mods+=Constraint*
+	 */
+	protected void sequence_Modification(ISerializationContext context, Constrain semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Modification returns Ext
+	 *
+	 * Constraint:
+	 *     mods+=External*
+	 */
+	protected void sequence_Modification(ISerializationContext context, Ext semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Modification returns Stat
+	 *
+	 * Constraint:
+	 *     mods+=StatFunc*
+	 */
+	protected void sequence_Modification(ISerializationContext context, Stat semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Modification returns ValueM
+	 *
+	 * Constraint:
+	 *     mods+=ValueMod*
+	 */
+	protected void sequence_Modification(ISerializationContext context, ValueM semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     LogExp returns Num
 	 *     LogExp.Or_1_0_0_1 returns Num
 	 *     LogExp.And_1_0_1_1 returns Num
@@ -654,16 +781,10 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	 *     Output returns Output
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     (name=STRING number=INT?)
 	 */
 	protected void sequence_Output(ISerializationContext context, Output semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.OUTPUT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.OUTPUT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOutputAccess().getNameSTRINGTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -707,7 +828,7 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	 *     Parser returns Parser
 	 *
 	 * Constraint:
-	 *     (file=FileDecl columns+=ColDecl+ mods+=Modification* out=Output?)
+	 *     (file=FileDecl? columns+=ColDecl+ mods+=Modification* out=Output?)
 	 */
 	protected void sequence_Parser(ISerializationContext context, Parser semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -716,7 +837,6 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns Max
 	 *     StatFunc returns Max
 	 *
 	 * Constraint:
@@ -735,7 +855,6 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns Mean
 	 *     StatFunc returns Mean
 	 *
 	 * Constraint:
@@ -754,7 +873,6 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns Min
 	 *     StatFunc returns Min
 	 *
 	 * Constraint:
@@ -773,7 +891,6 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns Std
 	 *     StatFunc returns Std
 	 *
 	 * Constraint:
@@ -792,7 +909,6 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns SumFunc
 	 *     StatFunc returns SumFunc
 	 *
 	 * Constraint:
@@ -805,6 +921,41 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStatFuncAccess().getInputColDeclIDTerminalRuleCall_3_3_0_1(), semanticObject.eGet(CSVParserGeneratorPackage.Literals.STAT_FUNC__INPUT, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LogExp returns StringLit
+	 *     LogExp.Or_1_0_0_1 returns StringLit
+	 *     LogExp.And_1_0_1_1 returns StringLit
+	 *     Comparison returns StringLit
+	 *     Comparison.Lt_1_0_0_1 returns StringLit
+	 *     Comparison.Gt_1_0_1_1 returns StringLit
+	 *     Comparison.Equ_1_0_2_1 returns StringLit
+	 *     Comparison.Neq_1_0_3_1 returns StringLit
+	 *     Comparison.Leq_1_0_4_1 returns StringLit
+	 *     Comparison.Geq_1_0_5_1 returns StringLit
+	 *     Sum returns StringLit
+	 *     Sum.Plus_1_0_0_1 returns StringLit
+	 *     Sum.Minus_1_0_1_1 returns StringLit
+	 *     Factor returns StringLit
+	 *     Factor.Mult_1_0_0_1 returns StringLit
+	 *     Factor.Div_1_0_1_1 returns StringLit
+	 *     Primary returns StringLit
+	 *     StringLiteral returns StringLit
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_StringLiteral(ISerializationContext context, StringLit semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CSVParserGeneratorPackage.Literals.STRING_LIT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CSVParserGeneratorPackage.Literals.STRING_LIT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -889,24 +1040,24 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Type returns Float
+	 *     Type returns Floa
 	 *
 	 * Constraint:
-	 *     {Float}
+	 *     {Floa}
 	 */
-	protected void sequence_Type(ISerializationContext context, dk.sdu.mdsd.cSVParserGenerator.Float semanticObject) {
+	protected void sequence_Type(ISerializationContext context, Floa semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Type returns Integer
+	 *     Type returns Integ
 	 *
 	 * Constraint:
-	 *     {Integer}
+	 *     {Integ}
 	 */
-	protected void sequence_Type(ISerializationContext context, dk.sdu.mdsd.cSVParserGenerator.Integer semanticObject) {
+	protected void sequence_Type(ISerializationContext context, Integ semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -925,7 +1076,6 @@ public class CSVParserGeneratorSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Modification returns ValueMod
 	 *     ValueMod returns ValueMod
 	 *
 	 * Constraint:

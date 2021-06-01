@@ -7,18 +7,25 @@ import dk.sdu.mdsd.cSVParserGenerator.Add;
 import dk.sdu.mdsd.cSVParserGenerator.And;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorFactory;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage;
+import dk.sdu.mdsd.cSVParserGenerator.ColAct;
 import dk.sdu.mdsd.cSVParserGenerator.ColDecl;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnAction;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnVar;
+import dk.sdu.mdsd.cSVParserGenerator.Constrain;
 import dk.sdu.mdsd.cSVParserGenerator.Constraint;
 import dk.sdu.mdsd.cSVParserGenerator.Date;
+import dk.sdu.mdsd.cSVParserGenerator.DateLit;
+import dk.sdu.mdsd.cSVParserGenerator.DateLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.Div;
 import dk.sdu.mdsd.cSVParserGenerator.Equ;
 import dk.sdu.mdsd.cSVParserGenerator.Expression;
+import dk.sdu.mdsd.cSVParserGenerator.Ext;
 import dk.sdu.mdsd.cSVParserGenerator.External;
 import dk.sdu.mdsd.cSVParserGenerator.FileDecl;
+import dk.sdu.mdsd.cSVParserGenerator.Floa;
 import dk.sdu.mdsd.cSVParserGenerator.Geq;
 import dk.sdu.mdsd.cSVParserGenerator.Gt;
+import dk.sdu.mdsd.cSVParserGenerator.Integ;
 import dk.sdu.mdsd.cSVParserGenerator.Leq;
 import dk.sdu.mdsd.cSVParserGenerator.Lt;
 import dk.sdu.mdsd.cSVParserGenerator.Max;
@@ -35,11 +42,15 @@ import dk.sdu.mdsd.cSVParserGenerator.Parens;
 import dk.sdu.mdsd.cSVParserGenerator.Parser;
 import dk.sdu.mdsd.cSVParserGenerator.Plus;
 import dk.sdu.mdsd.cSVParserGenerator.Rem;
+import dk.sdu.mdsd.cSVParserGenerator.Stat;
 import dk.sdu.mdsd.cSVParserGenerator.StatFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Std;
 import dk.sdu.mdsd.cSVParserGenerator.Str;
+import dk.sdu.mdsd.cSVParserGenerator.StringLit;
+import dk.sdu.mdsd.cSVParserGenerator.StringLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.SumFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Type;
+import dk.sdu.mdsd.cSVParserGenerator.ValueM;
 import dk.sdu.mdsd.cSVParserGenerator.ValueMod;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -167,6 +178,55 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass dateLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass valueMEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass extEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass statEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass colActEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass constrainEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass strEClass = null;
 
   /**
@@ -174,7 +234,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass integerEClass = null;
+  private EClass integEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -188,7 +248,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass floatEClass = null;
+  private EClass floaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -329,6 +389,20 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * @generated
    */
   private EClass numEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dateLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringLitEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -476,6 +550,17 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * @generated
    */
   @Override
+  public EAttribute getFileDecl_Sepchar()
+  {
+    return (EAttribute)fileDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getColDecl()
   {
     return colDeclEClass;
@@ -545,6 +630,17 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
   public EAttribute getOutput_Name()
   {
     return (EAttribute)outputEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOutput_Number()
+  {
+    return (EAttribute)outputEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -762,6 +858,138 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * @generated
    */
   @Override
+  public EClass getDateLiteral()
+  {
+    return dateLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getStringLiteral()
+  {
+    return stringLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getValueM()
+  {
+    return valueMEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getValueM_Mods()
+  {
+    return (EReference)valueMEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExt()
+  {
+    return extEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExt_Mods()
+  {
+    return (EReference)extEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getStat()
+  {
+    return statEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getStat_Mods()
+  {
+    return (EReference)statEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getColAct()
+  {
+    return colActEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getColAct_Mods()
+  {
+    return (EReference)colActEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getConstrain()
+  {
+    return constrainEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConstrain_Mods()
+  {
+    return (EReference)constrainEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getStr()
   {
     return strEClass;
@@ -773,9 +1001,9 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * @generated
    */
   @Override
-  public EClass getInteger()
+  public EClass getInteg()
   {
-    return integerEClass;
+    return integEClass;
   }
 
   /**
@@ -795,9 +1023,9 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * @generated
    */
   @Override
-  public EClass getFloat()
+  public EClass getFloa()
   {
-    return floatEClass;
+    return floaEClass;
   }
 
   /**
@@ -1147,9 +1375,20 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * @generated
    */
   @Override
-  public EReference getAdd_Mod()
+  public EReference getAdd_Type()
   {
     return (EReference)addEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAdd_Mod()
+  {
+    return (EReference)addEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1334,6 +1573,50 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
    * @generated
    */
   @Override
+  public EClass getDateLit()
+  {
+    return dateLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDateLit_Value()
+  {
+    return (EAttribute)dateLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getStringLit()
+  {
+    return stringLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getStringLit_Value()
+  {
+    return (EAttribute)stringLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public CSVParserGeneratorFactory getCSVParserGeneratorFactory()
   {
     return (CSVParserGeneratorFactory)getEFactoryInstance();
@@ -1367,6 +1650,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     fileDeclEClass = createEClass(FILE_DECL);
     createEAttribute(fileDeclEClass, FILE_DECL__NAME);
+    createEAttribute(fileDeclEClass, FILE_DECL__SEPCHAR);
 
     colDeclEClass = createEClass(COL_DECL);
     createEAttribute(colDeclEClass, COL_DECL__NAME);
@@ -1377,6 +1661,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     outputEClass = createEClass(OUTPUT);
     createEAttribute(outputEClass, OUTPUT__NAME);
+    createEAttribute(outputEClass, OUTPUT__NUMBER);
 
     valueModEClass = createEClass(VALUE_MOD);
     createEReference(valueModEClass, VALUE_MOD__NAME);
@@ -1407,13 +1692,32 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
     createEReference(constraintEClass, CONSTRAINT__NAME);
     createEReference(constraintEClass, CONSTRAINT__EXP);
 
+    dateLiteralEClass = createEClass(DATE_LITERAL);
+
+    stringLiteralEClass = createEClass(STRING_LITERAL);
+
+    valueMEClass = createEClass(VALUE_M);
+    createEReference(valueMEClass, VALUE_M__MODS);
+
+    extEClass = createEClass(EXT);
+    createEReference(extEClass, EXT__MODS);
+
+    statEClass = createEClass(STAT);
+    createEReference(statEClass, STAT__MODS);
+
+    colActEClass = createEClass(COL_ACT);
+    createEReference(colActEClass, COL_ACT__MODS);
+
+    constrainEClass = createEClass(CONSTRAIN);
+    createEReference(constrainEClass, CONSTRAIN__MODS);
+
     strEClass = createEClass(STR);
 
-    integerEClass = createEClass(INTEGER);
+    integEClass = createEClass(INTEG);
 
     dateEClass = createEClass(DATE);
 
-    floatEClass = createEClass(FLOAT);
+    floaEClass = createEClass(FLOA);
 
     orEClass = createEClass(OR);
     createEReference(orEClass, OR__LEFT);
@@ -1459,6 +1763,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     addEClass = createEClass(ADD);
     createEAttribute(addEClass, ADD__NAME);
+    createEReference(addEClass, ADD__TYPE);
     createEReference(addEClass, ADD__MOD);
 
     remEClass = createEClass(REM);
@@ -1482,6 +1787,12 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     numEClass = createEClass(NUM);
     createEAttribute(numEClass, NUM__VALUE);
+
+    dateLitEClass = createEClass(DATE_LIT);
+    createEAttribute(dateLitEClass, DATE_LIT__VALUE);
+
+    stringLitEClass = createEClass(STRING_LIT);
+    createEAttribute(stringLitEClass, STRING_LIT__VALUE);
   }
 
   /**
@@ -1513,18 +1824,20 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    valueModEClass.getESuperTypes().add(this.getModification());
     parensEClass.getESuperTypes().add(this.getExpression());
-    externalEClass.getESuperTypes().add(this.getModification());
-    statFuncEClass.getESuperTypes().add(this.getModification());
-    columnActionEClass.getESuperTypes().add(this.getModification());
     columnVarEClass.getESuperTypes().add(this.getExpression());
     numberEClass.getESuperTypes().add(this.getExpression());
-    constraintEClass.getESuperTypes().add(this.getModification());
+    dateLiteralEClass.getESuperTypes().add(this.getExpression());
+    stringLiteralEClass.getESuperTypes().add(this.getExpression());
+    valueMEClass.getESuperTypes().add(this.getModification());
+    extEClass.getESuperTypes().add(this.getModification());
+    statEClass.getESuperTypes().add(this.getModification());
+    colActEClass.getESuperTypes().add(this.getModification());
+    constrainEClass.getESuperTypes().add(this.getModification());
     strEClass.getESuperTypes().add(this.getType());
-    integerEClass.getESuperTypes().add(this.getType());
+    integEClass.getESuperTypes().add(this.getType());
     dateEClass.getESuperTypes().add(this.getType());
-    floatEClass.getESuperTypes().add(this.getType());
+    floaEClass.getESuperTypes().add(this.getType());
     orEClass.getESuperTypes().add(this.getExpression());
     andEClass.getESuperTypes().add(this.getExpression());
     ltEClass.getESuperTypes().add(this.getExpression());
@@ -1545,6 +1858,8 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
     multEClass.getESuperTypes().add(this.getExpression());
     divEClass.getESuperTypes().add(this.getExpression());
     numEClass.getESuperTypes().add(this.getNumber());
+    dateLitEClass.getESuperTypes().add(this.getDateLiteral());
+    stringLitEClass.getESuperTypes().add(this.getStringLiteral());
 
     // Initialize classes and features; add operations and parameters
     initEClass(parserEClass, Parser.class, "Parser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1555,6 +1870,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     initEClass(fileDeclEClass, FileDecl.class, "FileDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFileDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, FileDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFileDecl_Sepchar(), ecorePackage.getEString(), "sepchar", null, 0, 1, FileDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colDeclEClass, ColDecl.class, "ColDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getColDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, ColDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1565,6 +1881,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     initEClass(outputEClass, Output.class, "Output", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOutput_Name(), ecorePackage.getEString(), "name", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOutput_Number(), ecorePackage.getEInt(), "number", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valueModEClass, ValueMod.class, "ValueMod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getValueMod_Name(), this.getColDecl(), null, "name", null, 0, 1, ValueMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1595,13 +1912,32 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
     initEReference(getConstraint_Name(), this.getColDecl(), null, "name", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_Exp(), this.getExpression(), null, "exp", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(dateLiteralEClass, DateLiteral.class, "DateLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(valueMEClass, ValueM.class, "ValueM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getValueM_Mods(), this.getValueMod(), null, "mods", null, 0, -1, ValueM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(extEClass, Ext.class, "Ext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExt_Mods(), this.getExternal(), null, "mods", null, 0, -1, Ext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(statEClass, Stat.class, "Stat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStat_Mods(), this.getStatFunc(), null, "mods", null, 0, -1, Stat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(colActEClass, ColAct.class, "ColAct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getColAct_Mods(), this.getColumnAction(), null, "mods", null, 0, -1, ColAct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(constrainEClass, Constrain.class, "Constrain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConstrain_Mods(), this.getConstraint(), null, "mods", null, 0, -1, Constrain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(strEClass, Str.class, "Str", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(integerEClass, dk.sdu.mdsd.cSVParserGenerator.Integer.class, "Integer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(integEClass, Integ.class, "Integ", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(floatEClass, dk.sdu.mdsd.cSVParserGenerator.Float.class, "Float", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(floaEClass, Floa.class, "Floa", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1647,6 +1983,7 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAdd_Name(), ecorePackage.getEString(), "name", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdd_Type(), this.getType(), null, "type", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdd_Mod(), this.getExpression(), null, "mod", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(remEClass, Rem.class, "Rem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1670,6 +2007,12 @@ public class CSVParserGeneratorPackageImpl extends EPackageImpl implements CSVPa
 
     initEClass(numEClass, Num.class, "Num", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNum_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Num.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dateLitEClass, DateLit.class, "DateLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDateLit_Value(), ecorePackage.getEString(), "value", null, 0, 1, DateLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stringLitEClass, StringLit.class, "StringLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringLit_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

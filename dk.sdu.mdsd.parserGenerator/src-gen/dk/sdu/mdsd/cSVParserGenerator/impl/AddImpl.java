@@ -6,6 +6,7 @@ package dk.sdu.mdsd.cSVParserGenerator.impl;
 import dk.sdu.mdsd.cSVParserGenerator.Add;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage;
 import dk.sdu.mdsd.cSVParserGenerator.Expression;
+import dk.sdu.mdsd.cSVParserGenerator.Type;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.impl.AddImpl#getName <em>Name</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.impl.AddImpl#getType <em>Type</em>}</li>
  *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.impl.AddImpl#getMod <em>Mod</em>}</li>
  * </ul>
  *
@@ -50,6 +52,16 @@ public class AddImpl extends ColumnActionImpl implements Add
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected Type type;
 
   /**
    * The cached value of the '{@link #getMod() <em>Mod</em>}' containment reference.
@@ -113,6 +125,56 @@ public class AddImpl extends ColumnActionImpl implements Add
    * @generated
    */
   @Override
+  public Type getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
+  {
+    Type oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CSVParserGeneratorPackage.ADD__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(Type newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CSVParserGeneratorPackage.ADD__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CSVParserGeneratorPackage.ADD__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CSVParserGeneratorPackage.ADD__TYPE, newType, newType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Expression getMod()
   {
     return mod;
@@ -167,6 +229,8 @@ public class AddImpl extends ColumnActionImpl implements Add
   {
     switch (featureID)
     {
+      case CSVParserGeneratorPackage.ADD__TYPE:
+        return basicSetType(null, msgs);
       case CSVParserGeneratorPackage.ADD__MOD:
         return basicSetMod(null, msgs);
     }
@@ -185,6 +249,8 @@ public class AddImpl extends ColumnActionImpl implements Add
     {
       case CSVParserGeneratorPackage.ADD__NAME:
         return getName();
+      case CSVParserGeneratorPackage.ADD__TYPE:
+        return getType();
       case CSVParserGeneratorPackage.ADD__MOD:
         return getMod();
     }
@@ -203,6 +269,9 @@ public class AddImpl extends ColumnActionImpl implements Add
     {
       case CSVParserGeneratorPackage.ADD__NAME:
         setName((String)newValue);
+        return;
+      case CSVParserGeneratorPackage.ADD__TYPE:
+        setType((Type)newValue);
         return;
       case CSVParserGeneratorPackage.ADD__MOD:
         setMod((Expression)newValue);
@@ -224,6 +293,9 @@ public class AddImpl extends ColumnActionImpl implements Add
       case CSVParserGeneratorPackage.ADD__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case CSVParserGeneratorPackage.ADD__TYPE:
+        setType((Type)null);
+        return;
       case CSVParserGeneratorPackage.ADD__MOD:
         setMod((Expression)null);
         return;
@@ -243,6 +315,8 @@ public class AddImpl extends ColumnActionImpl implements Add
     {
       case CSVParserGeneratorPackage.ADD__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case CSVParserGeneratorPackage.ADD__TYPE:
+        return type != null;
       case CSVParserGeneratorPackage.ADD__MOD:
         return mod != null;
     }

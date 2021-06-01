@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.impl.OutputImpl#getName <em>Name</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.cSVParserGenerator.impl.OutputImpl#getNumber <em>Number</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,26 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNumber()
+   * @generated
+   * @ordered
+   */
+  protected static final int NUMBER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNumber()
+   * @generated
+   * @ordered
+   */
+  protected int number = NUMBER_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +121,39 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
    * @generated
    */
   @Override
+  public int getNumber()
+  {
+    return number;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNumber(int newNumber)
+  {
+    int oldNumber = number;
+    number = newNumber;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CSVParserGeneratorPackage.OUTPUT__NUMBER, oldNumber, number));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case CSVParserGeneratorPackage.OUTPUT__NAME:
         return getName();
+      case CSVParserGeneratorPackage.OUTPUT__NUMBER:
+        return getNumber();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +170,9 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
     {
       case CSVParserGeneratorPackage.OUTPUT__NAME:
         setName((String)newValue);
+        return;
+      case CSVParserGeneratorPackage.OUTPUT__NUMBER:
+        setNumber((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +191,9 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
       case CSVParserGeneratorPackage.OUTPUT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case CSVParserGeneratorPackage.OUTPUT__NUMBER:
+        setNumber(NUMBER_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +210,8 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
     {
       case CSVParserGeneratorPackage.OUTPUT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case CSVParserGeneratorPackage.OUTPUT__NUMBER:
+        return number != NUMBER_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -173,6 +229,8 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", number: ");
+    result.append(number);
     result.append(')');
     return result.toString();
   }

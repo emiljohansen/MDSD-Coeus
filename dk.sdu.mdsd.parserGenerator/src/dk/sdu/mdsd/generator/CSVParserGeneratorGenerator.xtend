@@ -24,41 +24,29 @@ class CSVParserGeneratorGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
-
-		fsa.generateFile('/parser/pom.xml', generatePom())
 		parserGenerator.doGenerate(resource, fsa, context);
+		fsa.generateFile('/parser/src/dk/sdu/mmmi/parser/ParserMain.java', generateMainClass());
 	}
 	
 	def generateProjectStructure(IFileSystemAccess2 fsa) {
 		
 	}
 	
-	def CharSequence generatePom() '''
-		<?xml version="1.0" encoding="UTF-8"?>
-		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-		  <modelVersion>4.0.0</modelVersion>
-		  
-		  <groupId>dk.sdu.mmmi.parser</groupId>
-		  <artifactId>demo</artifactId>
-		  <version>0.0.1-SNAPSHOT</version>
-		  <name>GeneratedParser</name>
-		  <description>GeneratedParser</description>
-		  
-		  <properties>
-		    <java.version>8</java.version>
-		  </properties>
-		  
-		  <dependencies>
-		    <dependency>
-		        <groupId>org.apache.commons</groupId>
-		        <artifactId>commons-csv</artifactId>
-		        <version>1.8</version>
-		    </dependency>
-		  </dependencies>
-		  <build>
-
-		  </build>
-		</project>
+	def CharSequence generateMainClass() '''
+		package dk.sdu.mmmi.parser;
+		
+		public class ParserMain{
+	
+		public static ExternalCheck externals;
+	
+		public static CSVParser p = new CSVParser(externals);
+	
+		public static void main(String[] args) {
+			p.parse();
+		}
+	
+}
+		
 	'''
+
 }

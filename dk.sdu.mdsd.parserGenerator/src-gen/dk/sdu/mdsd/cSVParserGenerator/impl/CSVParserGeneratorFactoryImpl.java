@@ -7,18 +7,25 @@ import dk.sdu.mdsd.cSVParserGenerator.Add;
 import dk.sdu.mdsd.cSVParserGenerator.And;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorFactory;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage;
+import dk.sdu.mdsd.cSVParserGenerator.ColAct;
 import dk.sdu.mdsd.cSVParserGenerator.ColDecl;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnAction;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnVar;
+import dk.sdu.mdsd.cSVParserGenerator.Constrain;
 import dk.sdu.mdsd.cSVParserGenerator.Constraint;
 import dk.sdu.mdsd.cSVParserGenerator.Date;
+import dk.sdu.mdsd.cSVParserGenerator.DateLit;
+import dk.sdu.mdsd.cSVParserGenerator.DateLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.Div;
 import dk.sdu.mdsd.cSVParserGenerator.Equ;
 import dk.sdu.mdsd.cSVParserGenerator.Expression;
+import dk.sdu.mdsd.cSVParserGenerator.Ext;
 import dk.sdu.mdsd.cSVParserGenerator.External;
 import dk.sdu.mdsd.cSVParserGenerator.FileDecl;
+import dk.sdu.mdsd.cSVParserGenerator.Floa;
 import dk.sdu.mdsd.cSVParserGenerator.Geq;
 import dk.sdu.mdsd.cSVParserGenerator.Gt;
+import dk.sdu.mdsd.cSVParserGenerator.Integ;
 import dk.sdu.mdsd.cSVParserGenerator.Leq;
 import dk.sdu.mdsd.cSVParserGenerator.Lt;
 import dk.sdu.mdsd.cSVParserGenerator.Max;
@@ -35,11 +42,15 @@ import dk.sdu.mdsd.cSVParserGenerator.Parens;
 import dk.sdu.mdsd.cSVParserGenerator.Parser;
 import dk.sdu.mdsd.cSVParserGenerator.Plus;
 import dk.sdu.mdsd.cSVParserGenerator.Rem;
+import dk.sdu.mdsd.cSVParserGenerator.Stat;
 import dk.sdu.mdsd.cSVParserGenerator.StatFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Std;
 import dk.sdu.mdsd.cSVParserGenerator.Str;
+import dk.sdu.mdsd.cSVParserGenerator.StringLit;
+import dk.sdu.mdsd.cSVParserGenerator.StringLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.SumFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Type;
+import dk.sdu.mdsd.cSVParserGenerator.ValueM;
 import dk.sdu.mdsd.cSVParserGenerator.ValueMod;
 
 import org.eclipse.emf.ecore.EClass;
@@ -117,10 +128,17 @@ public class CSVParserGeneratorFactoryImpl extends EFactoryImpl implements CSVPa
       case CSVParserGeneratorPackage.COLUMN_VAR: return createColumnVar();
       case CSVParserGeneratorPackage.NUMBER: return createNumber();
       case CSVParserGeneratorPackage.CONSTRAINT: return createConstraint();
+      case CSVParserGeneratorPackage.DATE_LITERAL: return createDateLiteral();
+      case CSVParserGeneratorPackage.STRING_LITERAL: return createStringLiteral();
+      case CSVParserGeneratorPackage.VALUE_M: return createValueM();
+      case CSVParserGeneratorPackage.EXT: return createExt();
+      case CSVParserGeneratorPackage.STAT: return createStat();
+      case CSVParserGeneratorPackage.COL_ACT: return createColAct();
+      case CSVParserGeneratorPackage.CONSTRAIN: return createConstrain();
       case CSVParserGeneratorPackage.STR: return createStr();
-      case CSVParserGeneratorPackage.INTEGER: return createInteger();
+      case CSVParserGeneratorPackage.INTEG: return createInteg();
       case CSVParserGeneratorPackage.DATE: return createDate();
-      case CSVParserGeneratorPackage.FLOAT: return createFloat();
+      case CSVParserGeneratorPackage.FLOA: return createFloa();
       case CSVParserGeneratorPackage.OR: return createOr();
       case CSVParserGeneratorPackage.AND: return createAnd();
       case CSVParserGeneratorPackage.LT: return createLt();
@@ -141,6 +159,8 @@ public class CSVParserGeneratorFactoryImpl extends EFactoryImpl implements CSVPa
       case CSVParserGeneratorPackage.MULT: return createMult();
       case CSVParserGeneratorPackage.DIV: return createDiv();
       case CSVParserGeneratorPackage.NUM: return createNum();
+      case CSVParserGeneratorPackage.DATE_LIT: return createDateLit();
+      case CSVParserGeneratorPackage.STRING_LIT: return createStringLit();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -332,6 +352,90 @@ public class CSVParserGeneratorFactoryImpl extends EFactoryImpl implements CSVPa
    * @generated
    */
   @Override
+  public DateLiteral createDateLiteral()
+  {
+    DateLiteralImpl dateLiteral = new DateLiteralImpl();
+    return dateLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public StringLiteral createStringLiteral()
+  {
+    StringLiteralImpl stringLiteral = new StringLiteralImpl();
+    return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ValueM createValueM()
+  {
+    ValueMImpl valueM = new ValueMImpl();
+    return valueM;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Ext createExt()
+  {
+    ExtImpl ext = new ExtImpl();
+    return ext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Stat createStat()
+  {
+    StatImpl stat = new StatImpl();
+    return stat;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ColAct createColAct()
+  {
+    ColActImpl colAct = new ColActImpl();
+    return colAct;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Constrain createConstrain()
+  {
+    ConstrainImpl constrain = new ConstrainImpl();
+    return constrain;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Str createStr()
   {
     StrImpl str = new StrImpl();
@@ -344,10 +448,10 @@ public class CSVParserGeneratorFactoryImpl extends EFactoryImpl implements CSVPa
    * @generated
    */
   @Override
-  public dk.sdu.mdsd.cSVParserGenerator.Integer createInteger()
+  public Integ createInteg()
   {
-    IntegerImpl integer = new IntegerImpl();
-    return integer;
+    IntegImpl integ = new IntegImpl();
+    return integ;
   }
 
   /**
@@ -368,10 +472,10 @@ public class CSVParserGeneratorFactoryImpl extends EFactoryImpl implements CSVPa
    * @generated
    */
   @Override
-  public dk.sdu.mdsd.cSVParserGenerator.Float createFloat()
+  public Floa createFloa()
   {
-    FloatImpl float_ = new FloatImpl();
-    return float_;
+    FloaImpl floa = new FloaImpl();
+    return floa;
   }
 
   /**
@@ -612,6 +716,30 @@ public class CSVParserGeneratorFactoryImpl extends EFactoryImpl implements CSVPa
   {
     NumImpl num = new NumImpl();
     return num;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DateLit createDateLit()
+  {
+    DateLitImpl dateLit = new DateLitImpl();
+    return dateLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public StringLit createStringLit()
+  {
+    StringLitImpl stringLit = new StringLitImpl();
+    return stringLit;
   }
 
   /**

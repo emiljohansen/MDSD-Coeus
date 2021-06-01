@@ -6,18 +6,25 @@ package dk.sdu.mdsd.cSVParserGenerator.util;
 import dk.sdu.mdsd.cSVParserGenerator.Add;
 import dk.sdu.mdsd.cSVParserGenerator.And;
 import dk.sdu.mdsd.cSVParserGenerator.CSVParserGeneratorPackage;
+import dk.sdu.mdsd.cSVParserGenerator.ColAct;
 import dk.sdu.mdsd.cSVParserGenerator.ColDecl;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnAction;
 import dk.sdu.mdsd.cSVParserGenerator.ColumnVar;
+import dk.sdu.mdsd.cSVParserGenerator.Constrain;
 import dk.sdu.mdsd.cSVParserGenerator.Constraint;
 import dk.sdu.mdsd.cSVParserGenerator.Date;
+import dk.sdu.mdsd.cSVParserGenerator.DateLit;
+import dk.sdu.mdsd.cSVParserGenerator.DateLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.Div;
 import dk.sdu.mdsd.cSVParserGenerator.Equ;
 import dk.sdu.mdsd.cSVParserGenerator.Expression;
+import dk.sdu.mdsd.cSVParserGenerator.Ext;
 import dk.sdu.mdsd.cSVParserGenerator.External;
 import dk.sdu.mdsd.cSVParserGenerator.FileDecl;
+import dk.sdu.mdsd.cSVParserGenerator.Floa;
 import dk.sdu.mdsd.cSVParserGenerator.Geq;
 import dk.sdu.mdsd.cSVParserGenerator.Gt;
+import dk.sdu.mdsd.cSVParserGenerator.Integ;
 import dk.sdu.mdsd.cSVParserGenerator.Leq;
 import dk.sdu.mdsd.cSVParserGenerator.Lt;
 import dk.sdu.mdsd.cSVParserGenerator.Max;
@@ -34,11 +41,15 @@ import dk.sdu.mdsd.cSVParserGenerator.Parens;
 import dk.sdu.mdsd.cSVParserGenerator.Parser;
 import dk.sdu.mdsd.cSVParserGenerator.Plus;
 import dk.sdu.mdsd.cSVParserGenerator.Rem;
+import dk.sdu.mdsd.cSVParserGenerator.Stat;
 import dk.sdu.mdsd.cSVParserGenerator.StatFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Std;
 import dk.sdu.mdsd.cSVParserGenerator.Str;
+import dk.sdu.mdsd.cSVParserGenerator.StringLit;
+import dk.sdu.mdsd.cSVParserGenerator.StringLiteral;
 import dk.sdu.mdsd.cSVParserGenerator.SumFunc;
 import dk.sdu.mdsd.cSVParserGenerator.Type;
+import dk.sdu.mdsd.cSVParserGenerator.ValueM;
 import dk.sdu.mdsd.cSVParserGenerator.ValueMod;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -187,14 +198,49 @@ public class CSVParserGeneratorAdapterFactory extends AdapterFactoryImpl
         return createConstraintAdapter();
       }
       @Override
+      public Adapter caseDateLiteral(DateLiteral object)
+      {
+        return createDateLiteralAdapter();
+      }
+      @Override
+      public Adapter caseStringLiteral(StringLiteral object)
+      {
+        return createStringLiteralAdapter();
+      }
+      @Override
+      public Adapter caseValueM(ValueM object)
+      {
+        return createValueMAdapter();
+      }
+      @Override
+      public Adapter caseExt(Ext object)
+      {
+        return createExtAdapter();
+      }
+      @Override
+      public Adapter caseStat(Stat object)
+      {
+        return createStatAdapter();
+      }
+      @Override
+      public Adapter caseColAct(ColAct object)
+      {
+        return createColActAdapter();
+      }
+      @Override
+      public Adapter caseConstrain(Constrain object)
+      {
+        return createConstrainAdapter();
+      }
+      @Override
       public Adapter caseStr(Str object)
       {
         return createStrAdapter();
       }
       @Override
-      public Adapter caseInteger(dk.sdu.mdsd.cSVParserGenerator.Integer object)
+      public Adapter caseInteg(Integ object)
       {
-        return createIntegerAdapter();
+        return createIntegAdapter();
       }
       @Override
       public Adapter caseDate(Date object)
@@ -202,9 +248,9 @@ public class CSVParserGeneratorAdapterFactory extends AdapterFactoryImpl
         return createDateAdapter();
       }
       @Override
-      public Adapter caseFloat(dk.sdu.mdsd.cSVParserGenerator.Float object)
+      public Adapter caseFloa(Floa object)
       {
-        return createFloatAdapter();
+        return createFloaAdapter();
       }
       @Override
       public Adapter caseOr(Or object)
@@ -305,6 +351,16 @@ public class CSVParserGeneratorAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNum(Num object)
       {
         return createNumAdapter();
+      }
+      @Override
+      public Adapter caseDateLit(DateLit object)
+      {
+        return createDateLitAdapter();
+      }
+      @Override
+      public Adapter caseStringLit(StringLit object)
+      {
+        return createStringLitAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -554,6 +610,111 @@ public class CSVParserGeneratorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.DateLiteral <em>Date Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.DateLiteral
+   * @generated
+   */
+  public Adapter createDateLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.StringLiteral
+   * @generated
+   */
+  public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.ValueM <em>Value M</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.ValueM
+   * @generated
+   */
+  public Adapter createValueMAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Ext <em>Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Ext
+   * @generated
+   */
+  public Adapter createExtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Stat <em>Stat</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Stat
+   * @generated
+   */
+  public Adapter createStatAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.ColAct <em>Col Act</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.ColAct
+   * @generated
+   */
+  public Adapter createColActAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Constrain <em>Constrain</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.Constrain
+   * @generated
+   */
+  public Adapter createConstrainAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Str <em>Str</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -569,16 +730,16 @@ public class CSVParserGeneratorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Integer <em>Integer</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Integ <em>Integ</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.cSVParserGenerator.Integer
+   * @see dk.sdu.mdsd.cSVParserGenerator.Integ
    * @generated
    */
-  public Adapter createIntegerAdapter()
+  public Adapter createIntegAdapter()
   {
     return null;
   }
@@ -599,16 +760,16 @@ public class CSVParserGeneratorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Float <em>Float</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.Floa <em>Floa</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.cSVParserGenerator.Float
+   * @see dk.sdu.mdsd.cSVParserGenerator.Floa
    * @generated
    */
-  public Adapter createFloatAdapter()
+  public Adapter createFloaAdapter()
   {
     return null;
   }
@@ -909,6 +1070,36 @@ public class CSVParserGeneratorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.DateLit <em>Date Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.DateLit
+   * @generated
+   */
+  public Adapter createDateLitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.cSVParserGenerator.StringLit <em>String Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.cSVParserGenerator.StringLit
+   * @generated
+   */
+  public Adapter createStringLitAdapter()
   {
     return null;
   }

@@ -159,6 +159,69 @@ public interface CSVParserGeneratorFactory extends EFactory
   Constraint createConstraint();
 
   /**
+   * Returns a new object of class '<em>Date Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Date Literal</em>'.
+   * @generated
+   */
+  DateLiteral createDateLiteral();
+
+  /**
+   * Returns a new object of class '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Literal</em>'.
+   * @generated
+   */
+  StringLiteral createStringLiteral();
+
+  /**
+   * Returns a new object of class '<em>Value M</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Value M</em>'.
+   * @generated
+   */
+  ValueM createValueM();
+
+  /**
+   * Returns a new object of class '<em>Ext</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ext</em>'.
+   * @generated
+   */
+  Ext createExt();
+
+  /**
+   * Returns a new object of class '<em>Stat</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stat</em>'.
+   * @generated
+   */
+  Stat createStat();
+
+  /**
+   * Returns a new object of class '<em>Col Act</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Col Act</em>'.
+   * @generated
+   */
+  ColAct createColAct();
+
+  /**
+   * Returns a new object of class '<em>Constrain</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constrain</em>'.
+   * @generated
+   */
+  Constrain createConstrain();
+
+  /**
    * Returns a new object of class '<em>Str</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -168,13 +231,13 @@ public interface CSVParserGeneratorFactory extends EFactory
   Str createStr();
 
   /**
-   * Returns a new object of class '<em>Integer</em>'.
+   * Returns a new object of class '<em>Integ</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer</em>'.
+   * @return a new object of class '<em>Integ</em>'.
    * @generated
    */
-  Integer createInteger();
+  Integ createInteg();
 
   /**
    * Returns a new object of class '<em>Date</em>'.
@@ -186,13 +249,13 @@ public interface CSVParserGeneratorFactory extends EFactory
   Date createDate();
 
   /**
-   * Returns a new object of class '<em>Float</em>'.
+   * Returns a new object of class '<em>Floa</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Float</em>'.
+   * @return a new object of class '<em>Floa</em>'.
    * @generated
    */
-  Float createFloat();
+  Floa createFloa();
 
   /**
    * Returns a new object of class '<em>Or</em>'.
@@ -373,6 +436,24 @@ public interface CSVParserGeneratorFactory extends EFactory
    * @generated
    */
   Num createNum();
+
+  /**
+   * Returns a new object of class '<em>Date Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Date Lit</em>'.
+   * @generated
+   */
+  DateLit createDateLit();
+
+  /**
+   * Returns a new object of class '<em>String Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Lit</em>'.
+   * @generated
+   */
+  StringLit createStringLit();
 
   /**
    * Returns the package supported by this factory.
